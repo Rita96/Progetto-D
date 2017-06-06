@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author riccardo
  */
 public class ControlSportello {
+    
     ArrayList<Sportello> listasportelli = new ArrayList<Sportello>();
     int nSportello = 0;
 

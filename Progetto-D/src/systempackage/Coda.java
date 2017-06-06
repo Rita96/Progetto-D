@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class Coda {
     
-    static ArrayList listaprenotazioni;
+    static ArrayList<Prenotazione> listaprenotazioni;
     static int numeroprenotazioni;
     
     public Coda(){
-        Coda.listaprenotazioni = new ArrayList();
+        Coda.listaprenotazioni = new ArrayList<Prenotazione>(0);
         Coda.numeroprenotazioni = 0;
     }
 
@@ -25,5 +25,15 @@ public class Coda {
         numeroprenotazioni++;
         listaprenotazioni.add(ticket);
     }
-    
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        for(Prenotazione p : listaprenotazioni){
+            sb.append(p+"\n");
+        }
+        
+        return sb.toString();
+    }
 }
