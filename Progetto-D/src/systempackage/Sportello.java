@@ -17,6 +17,7 @@ public class Sportello{
     boolean libero;
     Prenotazione prenotazione;
 
+    //costruttore di Sportello: viene passato come parametro solo il numero identificativo dello sportello
     public Sportello(int ID) {
         this.ID = ID;
 //        this.tipologia = tipologia;
@@ -24,14 +25,17 @@ public class Sportello{
         this.libero = true;
     }
     
+    //metodo che fa passare lo stato dello sportello da libero a occupato
     public synchronized void sonoOccupato(){
         this.libero = false;
     }
     
+    //metodo che fa passare lo stato dello sportello da occupato a libero
     public synchronized void sonoDisponibile(){
         this.libero = true;
     }
     
+    //metodo che assegna una prenotazione a uno Sportello
     public synchronized void setPrenotazione(Prenotazione pren){
         this.prenotazione = pren;
     }

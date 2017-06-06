@@ -11,19 +11,18 @@ package systempackage;
  *
  * @author riccardo
  */
+//classe per ora inutilizzata
 public class ControlSportello {
     
 //    public ArrayList<Sportello> listasportelli = new ArrayList();
-    static int nSportello = 0;
-
-    public ControlSportello() {
-    }
+//    static int nSportello = 0;
     
-    public static Sportello creaSportello(){
-        Sportello sportello = new Sportello(++nSportello);
-//        listasportelli.add(sportello);
-        return sportello;
-    }
+    
+//    public static Sportello creaSportello(){
+//        Sportello sportello = new Sportello(++nSportello);
+////        listasportelli.add(sportello);
+//        return sportello;
+//    }
 
 //    @Override
 //    public String toString() {

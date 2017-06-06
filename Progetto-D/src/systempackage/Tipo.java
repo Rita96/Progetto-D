@@ -9,6 +9,8 @@ package systempackage;
  *
  * @author Utente
  */
+
+//classe enum che definisce le diverse tipologie di prenotazioni
 public enum Tipo {
     A, B, C, D;
 }

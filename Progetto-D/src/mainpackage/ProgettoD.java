@@ -27,8 +27,8 @@ public class ProgettoD {
         Coda coda = new Coda();
         ControlSportello cs = new ControlSportello();
         Gestore g = new Gestore(coda);
-        ThreadSportello ts = new ThreadSportello(g);
-        ThreadSportello ts2 = new  ThreadSportello(g);
+        ThreadSportello ts = new ThreadSportello(g, 1);
+        ThreadSportello ts2 = new  ThreadSportello(g, 2);
         ControlTotem ct = new ControlTotem(coda);
         
 //        cs.creaSportello();

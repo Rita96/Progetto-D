@@ -19,10 +19,12 @@ public class ControlPannello {
     
     Map<String, String> righePannello;
 
+    //costrttore di ControlPannello: inizializza una hashmap
     public ControlPannello() {
         this.righePannello = new HashMap<String, String>();
     }
     
+    //aggiunge una prenotazione alla hashmap
     public void aggiungiPrenotazione(Prenotazione prenotazione, Sportello sportello){
         String p = "";
         String s = "";
@@ -34,6 +36,7 @@ public class ControlPannello {
         
     }
     
+    //rimuove una prenotazione dalla hashmap
     public void rimuoviPrenotazione(Prenotazione prenotazione){
         righePannello.remove(prenotazione.toString());
     }
