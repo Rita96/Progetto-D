@@ -15,6 +15,7 @@ public class Sportello{
 //    Tipo tipologia;
     boolean attivo;
     boolean libero;
+    Prenotazione prenotazione;
 
     public Sportello(int ID) {
         this.ID = ID;
@@ -29,6 +30,10 @@ public class Sportello{
     
     public synchronized void sonoDisponibile(){
         this.libero = true;
+    }
+    
+    public synchronized void setPrenotazione(Prenotazione pren){
+        this.prenotazione = pren;
     }
 
     @Override

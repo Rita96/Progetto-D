@@ -28,7 +28,7 @@ public class ThreadSportello extends Thread{
     }
     
     synchronized void sincro(Sportello sp){
-        System.out.println(Gestore.prossimaPrenotazione());
+        sp.setPrenotazione(Gestore.prossimaPrenotazione());
         sp.sonoOccupato();
     }
     
