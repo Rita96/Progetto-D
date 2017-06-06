@@ -17,7 +17,7 @@ public class Coda {
     static int numeroprenotazioni;
     
     public Coda(){
-        Coda.listaprenotazioni = new ArrayList<Prenotazione>(0);
+        Coda.listaprenotazioni = new ArrayList(0);
         Coda.numeroprenotazioni = 0;
     }
 
@@ -35,5 +35,12 @@ public class Coda {
         }
         
         return sb.toString();
+    }
+    
+    public synchronized static Prenotazione next(){
+        Prenotazione buffer = listaprenotazioni.get(0);
+        listaprenotazioni.remove(0);
+        numeroprenotazioni--;
+        return buffer;
     }
 }

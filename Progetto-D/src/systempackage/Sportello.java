@@ -9,7 +9,7 @@ package systempackage;
  *
  * @author riccardo
  */
-public class Sportello {
+public class Sportello extends Thread{
     
     int ID;
 //    Tipo tipologia;
@@ -36,11 +36,15 @@ public class Sportello {
         return "Sportello{" + "ID=" + ID + '}';
     }
     
+    @Override
+    public void run(){
+        
+        sincro();
+        
+    }
     
-    
-    
-    
-    
-    
+    synchronized void sincro(){
+        System.out.println(Gestore.prossimaPrenotazione());
+    }
     
 }

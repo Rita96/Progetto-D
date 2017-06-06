@@ -8,6 +8,7 @@ package mainpackage;
 import systempackage.Coda;
 import systempackage.ControlSportello;
 import systempackage.ControlTotem;
+import systempackage.Gestore;
 import systempackage.Tipo;
 
 /**
@@ -23,6 +24,7 @@ public class ProgettoD {
         
         ControlSportello cs = new ControlSportello();
         ControlTotem ct = new ControlTotem();
+        
         Coda coda = new Coda();
         
         cs.creaSportello();
@@ -40,6 +42,16 @@ public class ProgettoD {
         System.out.println(cs.toString());
         System.out.println(coda.toString());
         
+        System.out.println("----------------------------");
+        
+//        System.out.println(g.prossimaPrenotazione());
+//        System.out.println(g.prossimaPrenotazione());
+        cs.listasportelli.get(0).start();
+        cs.listasportelli.get(1).start();
+        
+        System.out.println("----------------------------");
+        
+        System.out.println(coda.toString());
     }
     
 }

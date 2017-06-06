@@ -10,5 +10,9 @@ package systempackage;
  * @author riccardo
  */
 public class Gestore {
+ 
+    public synchronized static Prenotazione prossimaPrenotazione(){
+        return Coda.next();
+    }
     
 }

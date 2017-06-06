@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class ControlSportello {
     
-    ArrayList<Sportello> listasportelli = new ArrayList<Sportello>();
+    public ArrayList<Sportello> listasportelli = new ArrayList();
     int nSportello = 0;
 
     public ControlSportello() {
