@@ -9,6 +9,8 @@ import systempackage.Coda;
 import systempackage.ControlSportello;
 import systempackage.ControlTotem;
 import systempackage.Gestore;
+import systempackage.Sportello;
+import systempackage.ThreadSportello;
 import systempackage.Tipo;
 
 /**
@@ -23,13 +25,14 @@ public class ProgettoD {
     public static void main(String[] args) {
         
         ControlSportello cs = new ControlSportello();
+        ThreadSportello ts = new ThreadSportello();
         ControlTotem ct = new ControlTotem();
         
         Coda coda = new Coda();
         
-        cs.creaSportello();
-        cs.creaSportello();
-        cs.creaSportello();
+//        cs.creaSportello();
+//        cs.creaSportello();
+//        cs.creaSportello();
         
         ct.creaPrenotazione(Tipo.A);
         ct.creaPrenotazione(Tipo.B);
@@ -46,8 +49,7 @@ public class ProgettoD {
         
 //        System.out.println(g.prossimaPrenotazione());
 //        System.out.println(g.prossimaPrenotazione());
-        cs.listasportelli.get(0).start();
-        cs.listasportelli.get(1).start();
+        ts.start();
         
         System.out.println("----------------------------");
         

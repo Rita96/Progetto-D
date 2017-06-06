@@ -9,7 +9,7 @@ package systempackage;
  *
  * @author riccardo
  */
-public class Sportello extends Thread{
+public class Sportello{
     
     int ID;
 //    Tipo tipologia;
@@ -33,11 +33,11 @@ public class Sportello extends Thread{
     }
     
     //metodi che variano la condizione attuale dello sportello
-    public void sonoOccupato(){
+    public synchronized void sonoOccupato(){
         this.libero = false;
     }
     
-    public void sonoDisponibile(){
+    public synchronized void sonoDisponibile(){
         this.libero = true;
     }
 
@@ -45,16 +45,6 @@ public class Sportello extends Thread{
     public String toString() {
         return "Sportello{" + "ID=" + ID + '}';
     }
-    
-    @Override
-    public void run(){
-        
-        sincro();
-        
-    }
-    
-    synchronized void sincro(){
-        System.out.println(Gestore.prossimaPrenotazione());
-    }
+   
     
 }
