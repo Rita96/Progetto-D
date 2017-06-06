@@ -26,6 +26,6 @@ public class Prenotazione {
 
     @Override
     public String toString() {
-        return "Prenotazione{" + "tipologia=" + tipologia + ", numero=" + numero + '}';
+        return tipologia + Integer.toString(numero);
     }
 }

@@ -40,7 +40,7 @@ public class ProgettoD {
         ct.creaPrenotazione(Tipo.A);
         
         System.out.println(cs.toString());
-        System.out.println(coda.toString());
+//        System.out.println(coda.toString());
         
         System.out.println("----------------------------");
         

@@ -24,6 +24,11 @@ public class ControlSportello {
         listasportelli.add(sportello);
     }
 
+    public ArrayList<Sportello> getListasportelli() {
+        return listasportelli;
+    }
+
+    
     @Override
     public String toString() {
         String str = "";

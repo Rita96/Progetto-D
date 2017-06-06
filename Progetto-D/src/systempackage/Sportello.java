@@ -23,6 +23,16 @@ public class Sportello extends Thread{
         this.libero = true;
     }
     
+    //metodi IS
+    public boolean isAttivo(){
+        return attivo;
+    }
+    
+    public boolean isLibero(){
+        return libero;
+    }
+    
+    //metodi che variano la condizione attuale dello sportello
     public void sonoOccupato(){
         this.libero = false;
     }
