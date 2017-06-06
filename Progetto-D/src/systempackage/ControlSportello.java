@@ -19,11 +19,11 @@ public class ControlSportello {
     public ControlSportello() {
     }
     
-//    public Sportello creaSportello(){
-//        Sportello sportello = new Sportello(++nSportello);
+    public static Sportello creaSportello(){
+        Sportello sportello = new Sportello(++nSportello);
 //        listasportelli.add(sportello);
-//        return sportello;
-//    }
+        return sportello;
+    }
 
 //    @Override
 //    public String toString() {

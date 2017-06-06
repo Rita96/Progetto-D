@@ -12,6 +12,10 @@ package systempackage;
 public class ThreadSportello extends Thread{
     
     Sportello sp;
+    
+    public ThreadSportello(){
+        sp = ControlSportello.creaSportello();
+    }
  
     @Override
     public void run(){
@@ -29,7 +33,8 @@ public class ThreadSportello extends Thread{
     }
     
     public synchronized void libera(){
-        sp.sonoDisponibile();
+//        System.out.println(sp);
+        this.sp.sonoDisponibile();
     }
     
 }

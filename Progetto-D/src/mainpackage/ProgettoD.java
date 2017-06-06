@@ -43,7 +43,7 @@ public class ProgettoD {
         ct.creaPrenotazione(Tipo.D);
         ct.creaPrenotazione(Tipo.A);
         
-        System.out.println(cs.toString());
+//        System.out.println(cs.toString());
 //        System.out.println(coda.toString());
         
         System.out.println("----------------------------");
@@ -58,7 +58,7 @@ public class ProgettoD {
         
         System.out.println("----------------------------");
         
-        System.out.println(coda.toString());
+//        System.out.println(coda.toString());
     }
     
 }
