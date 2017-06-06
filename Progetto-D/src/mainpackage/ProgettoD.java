@@ -26,6 +26,7 @@ public class ProgettoD {
         
         ControlSportello cs = new ControlSportello();
         ThreadSportello ts = new ThreadSportello();
+        ThreadSportello ts2 = new  ThreadSportello();
         ControlTotem ct = new ControlTotem();
         
         Coda coda = new Coda();
@@ -50,6 +51,10 @@ public class ProgettoD {
 //        System.out.println(g.prossimaPrenotazione());
 //        System.out.println(g.prossimaPrenotazione());
         ts.start();
+        ts2.start();
+        ts.libera();
+        ts2.libera();
+        ts2.libera();
         
         System.out.println("----------------------------");
         

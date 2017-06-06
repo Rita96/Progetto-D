@@ -24,6 +24,18 @@ public class ControlSportello {
 //        listasportelli.add(sportello);
 //        return sportello;
 //    }
+
+//    @Override
+//    public String toString() {
+//        String str = "";
+//        for(Sportello s : listasportelli){
+//            str += s.toString()+"\n";
+//        }
+//        return str;
+//    }
+    
+    
+}
     
 //    @Override
 //    public String toString() {
@@ -33,4 +45,4 @@ public class ControlSportello {
 //        }
 //        return str;
 //    }
-}
+

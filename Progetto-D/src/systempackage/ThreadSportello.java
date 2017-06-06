@@ -28,4 +28,8 @@ public class ThreadSportello extends Thread{
         sp.sonoOccupato();
     }
     
+    public synchronized void libera(){
+        sp.sonoDisponibile();
+    }
+    
 }

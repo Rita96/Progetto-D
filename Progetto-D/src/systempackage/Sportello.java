@@ -23,16 +23,6 @@ public class Sportello{
         this.libero = true;
     }
     
-    //metodi IS
-    public boolean isAttivo(){
-        return attivo;
-    }
-    
-    public boolean isLibero(){
-        return libero;
-    }
-    
-    //metodi che variano la condizione attuale dello sportello
     public synchronized void sonoOccupato(){
         this.libero = false;
     }
