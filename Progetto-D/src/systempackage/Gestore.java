@@ -11,8 +11,14 @@ package systempackage;
  */
 public class Gestore {
  
-    public synchronized static Prenotazione prossimaPrenotazione(){
-        return Coda.next();
+    Coda coda;
+    
+    public Gestore(Coda coda){
+     this.coda = coda;   
+    }
+    
+    public synchronized Prenotazione prossimaPrenotazione(){
+        return coda.next();
     }
     
 }

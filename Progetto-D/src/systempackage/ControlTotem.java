@@ -12,17 +12,19 @@ package systempackage;
 public class ControlTotem {
     
     int[] contanumero;
+    Coda coda;
     
-    public ControlTotem(){
+    public ControlTotem(Coda coda){
         this.contanumero = new int[4];
         for(int i=0; i<contanumero.length; i++){
             contanumero[i] = 0;
         }
+        this.coda = coda;
     }
     
     public void creaPrenotazione(Tipo tipologia){
         Prenotazione ticket = new Prenotazione(tipologia, ++this.contanumero[convertiTipo(tipologia)]);
-        Coda.aggiungiPrenotazione(ticket);
+        coda.aggiungiPrenotazione(ticket);
     }
     
     public int convertiTipo(Tipo tipo){

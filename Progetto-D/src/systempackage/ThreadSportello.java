@@ -12,9 +12,11 @@ package systempackage;
 public class ThreadSportello extends Thread{
     
     Sportello sp;
+    Gestore gestore;
     
-    public ThreadSportello(){
+    public ThreadSportello(Gestore gestore){
         sp = ControlSportello.creaSportello();
+        this.gestore = gestore;
     }
  
     @Override
@@ -28,7 +30,7 @@ public class ThreadSportello extends Thread{
     }
     
     synchronized void sincro(Sportello sp){
-        sp.setPrenotazione(Gestore.prossimaPrenotazione());
+        sp.setPrenotazione(gestore.prossimaPrenotazione());
         sp.sonoOccupato();
     }
     

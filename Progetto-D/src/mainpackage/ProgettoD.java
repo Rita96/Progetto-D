@@ -24,12 +24,12 @@ public class ProgettoD {
      */
     public static void main(String[] args) {
         
-        ControlSportello cs = new ControlSportello();
-        ThreadSportello ts = new ThreadSportello();
-        ThreadSportello ts2 = new  ThreadSportello();
-        ControlTotem ct = new ControlTotem();
-        
         Coda coda = new Coda();
+        ControlSportello cs = new ControlSportello();
+        Gestore g = new Gestore(coda);
+        ThreadSportello ts = new ThreadSportello(g);
+        ThreadSportello ts2 = new  ThreadSportello(g);
+        ControlTotem ct = new ControlTotem(coda);
         
 //        cs.creaSportello();
 //        cs.creaSportello();
