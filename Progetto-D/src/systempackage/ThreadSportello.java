@@ -19,13 +19,17 @@ public class ThreadSportello extends Thread{
         sp = new Sportello(numero);
         this.gestore = gestore;
     }
+
  
     //metodo run del Thread
     @Override
     public void run(){
         
+        System.out.println("toc");
+        
         while(true){
             if(sp.libero)
+                System.out.println("toc");
                 ottieniPrenotazione(sp);
         }
     }
@@ -39,7 +43,14 @@ public class ThreadSportello extends Thread{
     //metodo che rende lo sportello ancora disponibile
     public synchronized void libera(){
 //        System.out.println(sp);
-        this.sp.sonoDisponibile();
+        System.out.println("toc");
+        ThreadSportello t = (ThreadSportello) Thread.currentThread();
+        t.sp.sonoDisponibile();
+    }
+    
+    @Override
+    public String toString(){
+        return sp.toString();
     }
     
 }

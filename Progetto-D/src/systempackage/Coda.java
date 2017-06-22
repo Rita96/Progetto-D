@@ -41,6 +41,7 @@ public class Coda {
     
     //fornisce la prossima prenotazione nella lista
     public synchronized Prenotazione next(){
+        while(listaprenotazioni.size() == 0){}
         Prenotazione buffer = listaprenotazioni.get(0);
         listaprenotazioni.remove(0);
         numeroprenotazioni--;

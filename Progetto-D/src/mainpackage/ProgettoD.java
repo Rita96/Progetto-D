@@ -5,10 +5,13 @@
  */
 package mainpackage;
 
+import guipackage.FrameSportello;
 import systempackage.Coda;
+import systempackage.ControlPannello;
 import systempackage.ControlSportello;
 import systempackage.ControlTotem;
 import systempackage.Gestore;
+import systempackage.ServerSportello;
 import systempackage.Sportello;
 import systempackage.ThreadSportello;
 import systempackage.Tipo;
@@ -26,11 +29,13 @@ public class ProgettoD {
         
         Coda coda = new Coda();
         ControlSportello cs = new ControlSportello();
-        Gestore g = new Gestore(coda);
-        ThreadSportello ts = new ThreadSportello(g, 1);
-        ThreadSportello ts2 = new  ThreadSportello(g, 2);
+        ControlPannello cp = new ControlPannello();
         ControlTotem ct = new ControlTotem(coda);
-        
+        Gestore g = new Gestore(coda);
+//        ThreadSportello ts = new ThreadSportello(g, 1);
+//        ThreadSportello ts2 = new  ThreadSportello(g, 2);
+        ServerSportello server = new ServerSportello(g, cs);
+        server.start();
 //        cs.creaSportello();
 //        cs.creaSportello();
 //        cs.creaSportello();
@@ -43,6 +48,8 @@ public class ProgettoD {
         ct.creaPrenotazione(Tipo.D);
         ct.creaPrenotazione(Tipo.A);
         
+        FrameSportello frameS = new FrameSportello(cs);
+        
 //        System.out.println(cs.toString());
 //        System.out.println(coda.toString());
         
@@ -50,12 +57,12 @@ public class ProgettoD {
         
 //        System.out.println(g.prossimaPrenotazione());
 //        System.out.println(g.prossimaPrenotazione());
-        ts.start();
-        ts2.start();
-        ts.libera();
-        ts2.libera();
-        ts2.libera();
-        
+//        ts.start();
+//        ts2.start();
+//        ts.libera();
+//        ts2.libera();
+//        ts2.libera();
+//        
         System.out.println("----------------------------");
         
 //        System.out.println(coda.toString());
