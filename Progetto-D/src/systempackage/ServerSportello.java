@@ -40,18 +40,18 @@ public class ServerSportello extends Thread{
         while (true) {
             try {
                 Socket socket = listener.accept();
-                creaThread(socket);
+                creaSportello(socket);
                 socket.close();
             } catch (IOException ex) {
             }
         }
     }
     
-    synchronized void creaThread(Socket socket) throws IOException{
-        ThreadSportello ts = new ThreadSportello(gestore, ++numerosportelli);
-        controlS.aggiungiAssociazione(numerosportelli, ts);
+    //crea uno sportello e lo aggiunge alla lista
+    void creaSportello(Socket socket) throws IOException{
+        Sportello sp = new Sportello(++numerosportelli);
+        controlS.aggiungiSportello(numerosportelli);
         PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         out.println(numerosportelli);
-        ts.start();
     }
 }

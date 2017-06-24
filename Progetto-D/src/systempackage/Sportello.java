@@ -32,7 +32,6 @@ public class Sportello{
     
     //metodo che fa passare lo stato dello sportello da occupato a libero
     public synchronized void sonoDisponibile(){
-        System.out.println("toc");
         this.libero = true;
     }
     

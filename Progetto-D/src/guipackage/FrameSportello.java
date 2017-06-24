@@ -54,7 +54,6 @@ public class FrameSportello extends JFrame{
         ActionListener l2 = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("toc");
                 controlS.liberaSportello(numerosportello);
             }
         };

@@ -18,9 +18,16 @@ public class Gestore {
      this.coda = coda;   
     }
     
-    //metodo che fornisce la prossima prenotazione
-    public synchronized Prenotazione prossimaPrenotazione(){
-        return coda.next();
+    //metodo che fa partire la procedura per la prossima prenotazione
+    public void prossimaPrenotazione(Sportello sp, ControlSportello cs){
+        ThreadRicerca tr = new ThreadRicerca(sp, coda, cs);
+        tr.start();
+    }
+    
+    //metodo che fa partire la procedura per aggiungere una prenotazione alla lista
+    public void nuovaPrenotazione(Prenotazione p){
+        ThreadAggiunta tr = new ThreadAggiunta(coda, p);
+        tr.start();
     }
     
     

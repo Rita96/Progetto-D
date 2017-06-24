@@ -12,21 +12,21 @@ package systempackage;
 public class ControlTotem {
     
     int[] contanumero; //array che contiene il numero di prenotazioni per ogni tipologia
-    Coda coda;
+    Gestore gestore;
     
     //costruttore del ControlTotem: ha come parametro la coda
-    public ControlTotem(Coda coda){
+    public ControlTotem(Gestore g){
         this.contanumero = new int[4];
         for(int i=0; i<contanumero.length; i++){
             contanumero[i] = 0;
         }
-        this.coda = coda;
+        this.gestore = g;
     }
     
     //metodo che ha il compito di creare prenotazini e aggiungerle alla coda
     public void creaPrenotazione(Tipo tipologia){
         Prenotazione ticket = new Prenotazione(tipologia, ++this.contanumero[convertiTipo(tipologia)]);
-        coda.aggiungiPrenotazione(ticket);
+        gestore.nuovaPrenotazione(ticket);
     }
     
     //converte il tipo della prentotazione in un numero

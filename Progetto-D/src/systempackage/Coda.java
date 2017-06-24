@@ -18,16 +18,33 @@ public class Coda {
     
     //costruttore di coda, inizializza un ArrayList vuoto e il numero di prenotazioni pari a zero
     public Coda(){
-        this.listaprenotazioni = new ArrayList(0);
+        this.listaprenotazioni = new ArrayList();
         this.numeroprenotazioni = 0;
     }
 
     //metodo che aggiunge una preotazione passata come paramtro e la aggiunge alla coda (ArrayList)
-    public void aggiungiPrenotazione(Prenotazione ticket) {
+    public synchronized void aggiungiPrenotazione(Prenotazione ticket) {
         numeroprenotazioni++;
         listaprenotazioni.add(ticket);
+        System.out.println(ticket);
     }
-
+    
+    //fornisce la prossima prenotazione nella lista
+    public synchronized void next(Sportello sp){
+        if(numeroprenotazioni==0){
+            ThreadRicerca t = (ThreadRicerca) Thread.currentThread();
+            t.interrupt();
+        }
+        if(sp.libero){
+            Prenotazione ticket = listaprenotazioni.get(0);
+            listaprenotazioni.remove(0);
+            numeroprenotazioni--;
+            sp.sonoOccupato();
+            sp.setPrenotazione(ticket);
+            System.out.println(ticket);
+        }
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -37,14 +54,5 @@ public class Coda {
         }
         
         return sb.toString();
-    }
-    
-    //fornisce la prossima prenotazione nella lista
-    public synchronized Prenotazione next(){
-        while(listaprenotazioni.size() == 0){}
-        Prenotazione buffer = listaprenotazioni.get(0);
-        listaprenotazioni.remove(0);
-        numeroprenotazioni--;
-        return buffer;
     }
 }

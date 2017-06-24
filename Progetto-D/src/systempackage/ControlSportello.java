@@ -5,8 +5,8 @@
  */
 package systempackage;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /**
@@ -16,41 +16,36 @@ import java.util.Map;
 //classe per ora inutilizzata
 public class ControlSportello {
     
-    Map tabellaST;
+    ArrayList<Sportello> listasportelli;
+    Gestore gestore;
     
     //costruttore ControlSportello, si farà riferimento ai thread a partire dal loro numero associato
-    public ControlSportello() {
-        this.tabellaST = new HashMap<Integer, ThreadSportello>();
+    public ControlSportello(Gestore g) {
+        this.listasportelli = new ArrayList();
+        this.gestore = g;
     }
     
-    //quando viene creato un nuovo thread, associa il numero dello sportello al thread
-    public void aggiungiAssociazione(int num, ThreadSportello ts){
-        tabellaST.put(num, ts);
+    //viene creato un nuovo sportello e aggiunto alla lista
+    public void aggiungiSportello(int num){
+        Sportello nuovosportello = new Sportello(num);
+        listasportelli.add(nuovosportello);
     }
     
     //chiamato quando uno sportello viene liberato
     public void liberaSportello(int num){
-        ThreadSportello threadselezionato = (ThreadSportello) tabellaST.get(num);
-        System.out.println("toc");
-        threadselezionato.libera();
+        Iterator itr = listasportelli.iterator();
+        Sportello buff;
+      
+        while(itr.hasNext()) {
+            buff = (Sportello) itr.next();
+            if(buff.ID==num)
+                buff.sonoDisponibile();
+                gestore.prossimaPrenotazione(buff, this);
+        }
+    }
+
+    void inviaPrenotazione(Sportello sp) {
+        //invia la prentoazione giusta allo sportello
     }
 }
 
-//    public ArrayList<Sportello> listasportelli = new ArrayList();
-//    static int nSportello = 0;
-    
-    
-//    public static Sportello creaSportello(){
-//        Sportello sportello = new Sportello(++nSportello);
-////        listasportelli.add(sportello);
-//        return sportello;
-//    }
-
-//    @Override
-//    public String toString() {
-//        String str = "";
-//        for(Sportello s : listasportelli){
-//            str += s.toString()+"\n";
-//        }
-//        return str;
-//    }
