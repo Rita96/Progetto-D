@@ -17,6 +17,7 @@ import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JPanel;
 import systempackage.ControlSportello;
+import systempackage.Tipo;
 
 /**
  *
@@ -59,8 +60,30 @@ public class FrameSportello extends JFrame{
         };
         libera.addActionListener(l2);
         pan.add(libera);
-        add(pan);
         
+        
+        JButton tipoA = new JButton("Tipo A");
+        ActionListener listenerTipoA = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlS.setTipo(numerosportello, Tipo.A);
+            }
+        };
+        tipoA.addActionListener(listenerTipoA);
+        pan.add(tipoA);
+        
+        JButton tipoB = new JButton("Tipo B");
+        ActionListener listenerTipoB = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controlS.setTipo(numerosportello, Tipo.B);
+            }
+        };
+        tipoB.addActionListener(listenerTipoB);
+        pan.add(tipoB);
+        
+        
+        add(pan);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setSize (500, 500);

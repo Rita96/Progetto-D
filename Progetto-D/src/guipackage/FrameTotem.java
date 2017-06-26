@@ -26,17 +26,26 @@ public class FrameTotem extends JFrame{
         
         JPanel pan = new JPanel();
         JButton tipoA = new JButton("A");
-        ActionListener l = new ActionListener() {
+        ActionListener la = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ct.creaPrenotazione(Tipo.A);
             }
         };
-        tipoA.addActionListener(l);
+        tipoA.addActionListener(la);
         pan.add(tipoA);
         
-        add(pan);
+        JButton tipoB = new JButton("B");
+        ActionListener lb = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ct.creaPrenotazione(Tipo.B);
+            }
+        };
+        tipoB.addActionListener(lb);
+        pan.add(tipoB);
         
+        add(pan);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         setSize (500, 500);

@@ -33,19 +33,33 @@ public class ControlSportello {
     
     //chiamato quando uno sportello viene liberato
     public void liberaSportello(int num){
+        Sportello sp = trovaSportello(num);
+        sp.sonoDisponibile();
+        gestore.prossimaPrenotazione(sp, this);
+    }
+
+    void inviaPrenotazione(Sportello sp) {
+        //invia la prentoazione giusta allo sportello
+    }
+
+    //setta il tipo dello sportello
+    public void setTipo(int num, Tipo tipo) {
+        Sportello sp = trovaSportello(num);
+        sp.setTipologia(tipo);
+    }
+    
+    //per ricavare lo sportello associato a un identificativo
+    private Sportello trovaSportello(int num){
         Iterator itr = listasportelli.iterator();
         Sportello buff;
       
         while(itr.hasNext()) {
             buff = (Sportello) itr.next();
             if(buff.ID==num)
-                buff.sonoDisponibile();
-                gestore.prossimaPrenotazione(buff, this);
+                return buff;
         }
-    }
-
-    void inviaPrenotazione(Sportello sp) {
-        //invia la prentoazione giusta allo sportello
+        
+        return new Sportello(-1);
     }
 }
 

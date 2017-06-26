@@ -6,6 +6,8 @@
 package systempackage;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
 
 /**
  *
@@ -35,15 +37,40 @@ public class Coda {
             ThreadRicerca t = (ThreadRicerca) Thread.currentThread();
             t.interrupt();
         }
-        if(sp.libero){
-            Prenotazione ticket = listaprenotazioni.get(0);
-            listaprenotazioni.remove(0);
-            numeroprenotazioni--;
-            sp.sonoOccupato();
-            sp.setPrenotazione(ticket);
-            System.out.println(ticket);
+        if(sp.libero && sp.tipologia.equals(Tipo.NULL)){
+            try{
+                Prenotazione ticket = listaprenotazioni.get(0);
+                listaprenotazioni.remove(0);
+                numeroprenotazioni--;
+                sp.sonoOccupato();
+                sp.setPrenotazione(ticket);
+                System.out.println(ticket);
+            }catch(IndexOutOfBoundsException e){
+                
+            }
+        }
+        else if(sp.libero){
+            Iterator itr = listaprenotazioni.iterator();
+            Prenotazione ticket;
+            
+            try{
+                while(itr.hasNext()) {
+                    ticket = (Prenotazione) itr.next();
+                    if(sp.tipologia.equals(ticket.tipologia)){
+                        int ind = listaprenotazioni.indexOf(ticket);
+                        listaprenotazioni.remove(ind);
+                        numeroprenotazioni--;
+                        sp.sonoOccupato();
+                        sp.setPrenotazione(ticket);
+                        System.out.println(ticket);
+                    }
+                }
+            }catch(ConcurrentModificationException e){
+                        
+            }
         }
     }
+
     
     @Override
     public String toString() {

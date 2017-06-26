@@ -12,7 +12,7 @@ package systempackage;
 public class Sportello{
     
     int ID;
-//    Tipo tipologia;
+    Tipo tipologia;
     boolean attivo;
     boolean libero;
     Prenotazione prenotazione;
@@ -20,7 +20,7 @@ public class Sportello{
     //costruttore di Sportello: viene passato come parametro solo il numero identificativo dello sportello
     public Sportello(int ID) {
         this.ID = ID;
-//        this.tipologia = tipologia;
+        this.tipologia = Tipo.NULL;
         this.attivo = true;
         this.libero = true;
     }
@@ -43,6 +43,11 @@ public class Sportello{
     @Override
     public String toString() {
         return "Sportello{" + "ID=" + ID + '}';
+    }
+
+    //setter della tipologia
+    void setTipologia(Tipo tipo) {
+        this.tipologia = tipo;
     }
    
     
