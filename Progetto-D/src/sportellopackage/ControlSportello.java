@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package systempackage;
+package sportellopackage;
 
-import guipackage.FrameSportello;
+import sportellopackage.FrameSportello;
+import systempackage.Gestore;
+import systempackage.Sportello;
 
 /**
  *
@@ -33,13 +35,17 @@ public class ControlSportello {
     public void ricevePrenotazione() {
 
         //server.receive gestito da websocket
-        sportello.setAttivo(false);
+        sportello.setLibero(false);
     }
 
     public void inviaStato() {
 
         //client.send gestito da websocket
-        sportello.setAttivo(true);
+        sportello.setLibero(true);
+    }
+    
+    public void setAttivo(boolean bool){
+        sportello.setAttivo(bool);
     }
     
     public boolean inviaCredenziali(String user, String password){

@@ -5,7 +5,7 @@
  */
 package mainpackage;
 
-import systempackage.ControlPannello;
+import pannellopackage.ControlPannello;
 import systempackage.Prenotazione;
 import systempackage.Sportello;
 import systempackage.Tipo;

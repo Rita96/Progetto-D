@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
  */
-package guipackage;
+package sportellopackage;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -21,7 +21,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
-import systempackage.ControlSportello;
 
 /**
  *
@@ -101,31 +100,38 @@ public class FrameSportello extends JFrame implements ActionListener {
         String username = usernameTextField.getText();
         String password = new String(passwordTextArea.getPassword());
 
-        if (comando.equals("Prossimo cliente")) {
+        switch (comando) {
+            case ("Prossimo cliente"):
+                cSportello.inviaStato();
+                break;
+            case ("Login"):
+                if (cSportello.inviaCredenziali(username, password)) {
+                    cSportello.setAttivo(true);
 
-        } else if (comando.equals("Login")) {
+                    CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+                    creaFramePrenotazione(prenotazioneLabel);
+                    cardLayout.show(cardPanel, "sportello");
+                } else {
 
-            if (cSportello.inviaCredenziali(username, password)) {
+                    passwordTextArea.setText("");
+                    usernameTextField.setText("");
+                    showInvalidUsernameMessage();
 
-                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-                creaFramePrenotazione(prenotazioneLabel);
-                cardLayout.show(cardPanel, "sportello");
-            } else {
-
+                }
+                break;
+            case ("Logout"):
+                cSportello.setAttivo(false);;
                 passwordTextArea.setText("");
                 usernameTextField.setText("");
-                showInvalidUsernameMessage();
 
-            }
-        } else if (comando.equals(
-                "Logout")) {
-            passwordTextArea.setText("");
-            usernameTextField.setText("");
-
-            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-            prenotazioneFrame.dispose();
-            cardLayout.show(cardPanel, "login");
+                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+                prenotazioneFrame.dispose();
+                cardLayout.show(cardPanel, "login");
+                break;
+            default:
+                break;
         }
+        
     }
 
     private void initLoginPanel() {
@@ -192,7 +198,7 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     private void showInvalidUsernameMessage() {
         JFrame errorMessage = new JFrame("Invalid uername or password");
-        errorMessage.setLayout(new GridLayout(2,1));
+        errorMessage.setLayout(new GridLayout(2, 1));
         JLabel errorLabel = new JLabel("Username o password errate");
         JButton okButton = new JButton("OK");
         okButton.addActionListener(new ActionListener() {
@@ -205,7 +211,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         errorMessage.add(okButton);
         errorMessage.setVisible(true);
         errorMessage.pack();
-        
+
     }
 
 }

@@ -5,6 +5,8 @@
  */
 package systempackage;
 
+import sportellopackage.ControlSportello;
+
 /**
  *
  * @author Utente

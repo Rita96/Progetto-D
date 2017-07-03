@@ -5,8 +5,8 @@
  */
 package mainpackage;
 
-import guipackage.FrameSportello;
-import systempackage.ControlSportello;
+import sportellopackage.FrameSportello;
+import sportellopackage.ControlSportello;
 import systempackage.Sportello;
 
 /**
