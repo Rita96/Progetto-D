@@ -17,13 +17,13 @@ import systempackage.Tipo;
  *
  * @author riccardo
  */
-public class FrameTotem extends JFrame{
-    
+public class FrameTotem extends JFrame {
+
     private ControlTotem ct;
-    
-    public FrameTotem(ControlTotem ct){
+
+    public FrameTotem(ControlTotem ct) {
         this.ct = ct;
-        
+
         JPanel pan = new JPanel();
         JButton tipoA = new JButton("A");
         ActionListener la = new ActionListener() {
@@ -34,7 +34,7 @@ public class FrameTotem extends JFrame{
         };
         tipoA.addActionListener(la);
         pan.add(tipoA);
-        
+
         JButton tipoB = new JButton("B");
         ActionListener lb = new ActionListener() {
             @Override
@@ -44,12 +44,11 @@ public class FrameTotem extends JFrame{
         };
         tipoB.addActionListener(lb);
         pan.add(tipoB);
-        
+
         add(pan);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        setSize (500, 500);
+        setSize(500, 500);
     }
-    
-}
 
+}

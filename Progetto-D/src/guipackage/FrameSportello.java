@@ -22,6 +22,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import systempackage.ControlSportello;
+import systempackage.Gestore;
 
 /**
  *
@@ -34,18 +36,22 @@ public class FrameSportello extends JFrame implements ActionListener {
     Border bordoBlack = BorderFactory.createLineBorder(Color.black, 2);
     String[] tipo = {"A (Singola Operazione)", "B (Pagamenti e Prelievi", "C (Spedizioni)", "Tutte le tipologie"};
     JFrame prenotazioneFrame;
+    JTextField usernameTextField;
+    JPasswordField passwordTextArea;
     JLabel prenotazioneLabel;
     JPanel sportelloPanel;
     JPanel loginPanel;
     JPanel cardPanel;
+    ControlSportello cSportello;
 
-    public FrameSportello() {
+    public FrameSportello(ControlSportello cSportello) {
+
+        this.cSportello = cSportello;
         initComponents();
 
     }
 
     private void initComponents() {
-        
 
         cardPanel = new JPanel(new CardLayout());
         sportelloPanel = new JPanel();
@@ -68,8 +74,6 @@ public class FrameSportello extends JFrame implements ActionListener {
         prenotazioneLabel = new JLabel("Etichetta Prenotazione");
         prenotazioneLabel.setFont(font);
         prenotazioneLabel.setHorizontalAlignment(JLabel.CENTER);
-
-
 
         JButton logoutButton = new JButton("Logout");
         logoutButton.addActionListener(this);
@@ -101,13 +105,13 @@ public class FrameSportello extends JFrame implements ActionListener {
         pasLabel.setForeground(Color.blue);
         loginPanel.add(pasLabel);
 
-        JTextField usernameTextField = new JTextField(20);
+        usernameTextField = new JTextField(20);
         usernameTextField.setBounds(120, 20, 150, 20);
         usernameTextField.setFont(font);
         usernameTextField.setBorder(bordoStd);
         loginPanel.add(usernameTextField);
 
-        JPasswordField passwordTextArea = new JPasswordField(20);
+        passwordTextArea = new JPasswordField(20);
         passwordTextArea.setBounds(120, 80, 150, 20);
         passwordTextArea.setFont(font);
         passwordTextArea.setBorder(bordoStd);
@@ -122,10 +126,10 @@ public class FrameSportello extends JFrame implements ActionListener {
         cardPanel.add(loginPanel, "login");
 
         add(cardPanel);
-        
+
         CardLayout cl = (CardLayout) cardPanel.getLayout();
         cl.show(cardPanel, "login");
-        
+
         setVisible(true);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -152,15 +156,21 @@ public class FrameSportello extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
 
+        String username = usernameTextField.getText();
+        String password = new String(passwordTextArea.getPassword());
+
         if (comando.equals("Prossimo cliente")) {
-            
+
         } else if (comando.equals("Login")) {
-            
-            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
-            creaFramePrenotazione(prenotazioneLabel);
-            cardLayout.show(cardPanel, "sportello");
-            
-        } else if(comando.equals("Logout")){
+
+            if (cSportello.inviaCredenziali(username, password)) {
+
+                CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+                creaFramePrenotazione(prenotazioneLabel);
+                cardLayout.show(cardPanel, "sportello");
+            }
+        } else if (comando.equals(
+                "Logout")) {
             CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
             prenotazioneFrame.dispose();
             cardLayout.show(cardPanel, "login");

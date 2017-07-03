@@ -19,7 +19,7 @@ public class Test_Gui {
 
         Sportello s = new Sportello(1);
         ControlSportello controlSportello = new ControlSportello(s);
-        FrameSportello frameSportello = new FrameSportello();
+        FrameSportello frameSportello = new FrameSportello(controlSportello);
 
     }
 

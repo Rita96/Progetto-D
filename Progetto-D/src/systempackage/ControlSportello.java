@@ -16,12 +16,11 @@ import guipackage.FrameSportello;
 public class ControlSportello {
 
     private Sportello sportello;
-    private FrameLogin fLogin;
     private FrameSportello fSportello;
 
     public ControlSportello(Sportello sportello) {
         this.sportello = sportello;
-        this.fLogin = new FrameLogin(sportello.getID());
+        this.fSportello = new FrameSportello(this);
     }
 
     public Sportello getSportello() {
@@ -42,6 +41,12 @@ public class ControlSportello {
 
         //client.send gestito da websocket
         sportello.setAttivo(true);
+    }
+    
+    public boolean inviaCredenziali(String user, String password){
+    
+        return Gestore.checkLogin(user, password);
+    
     }
 
 }
