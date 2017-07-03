@@ -6,7 +6,6 @@
 package totempackage;
 
 import systempackage.Tipo;
-import totempackage.FrameTotem;
 
 /**
  *
@@ -15,14 +14,16 @@ import totempackage.FrameTotem;
 public class ControlTotem {
 
     private FrameTotem fTotem;
-    
+
     public ControlTotem() {
+
+        fTotem = new FrameTotem(this);
 
     }
 
     public void inviaTipologia(Tipo t) {
 
-        //client.send gestido da websocket
+        System.out.println("Invio tipo " + t.toString());//client.send gestido da websocket
     }
 
 }

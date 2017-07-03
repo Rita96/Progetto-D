@@ -6,8 +6,11 @@
 package mainpackage;
 
 
+
+import pannellopackage.ControlPannello;
 import sportellopackage.ControlSportello;
 import systempackage.Sportello;
+import totempackage.ControlTotem;
 
 /**
  *
@@ -17,8 +20,15 @@ public class Test_Gui {
 
     public static void main(String[] args) {
 
-        Sportello s = new Sportello(1);
-        ControlSportello controlSportello = new ControlSportello(s);
+//        Sportello s = new Sportello(1);
+//        ControlSportello controlSportello = new ControlSportello(s);
+//        
+//        ControlTotem cT = new ControlTotem();
+//        
+        
+          ControlPannello cp = new ControlPannello();
+
+        
         
 
     }

@@ -44,6 +44,11 @@ public class Gestore {
         //prossima prenotazione, la tipologia la invia il totem
     }
 
+    public void inviaTurno() {
+
+        //sever.sent invia al pannelo e sportello
+    }
+
     //in ingresso riceverà dal totem la tipologia tramite websocket
     public void addPrenotazione(Tipo tipologia) {
         Prenotazione ticket = new Prenotazione(tipologia, 0);
