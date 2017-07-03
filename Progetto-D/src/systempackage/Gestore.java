@@ -5,30 +5,67 @@
  */
 package systempackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author riccardo
  */
 public class Gestore {
- 
-    Coda coda;
-    
-    //costruttore di Gestroe: ha come parametro la coda delle prenotazioni
-    public Gestore(Coda coda){
-     this.coda = coda;   
+
+    private List<Prenotazione> listaPrenotazione;
+    private List<Sportello> listaSportelli;
+
+    public Gestore() {
+        this.listaPrenotazione = new ArrayList<>();
+        this.listaSportelli = new ArrayList<>();
+
     }
-    
-    //metodo che fa partire la procedura per la prossima prenotazione
-    public void prossimaPrenotazione(Sportello sp, ControlSportello cs){
-        ThreadRicerca tr = new ThreadRicerca(sp, coda, cs);
-        tr.start();
+
+    public List<Prenotazione> getListaPrenotazione() {
+        return listaPrenotazione;
     }
-    
-    //metodo che fa partire la procedura per aggiungere una prenotazione alla lista
-    public void nuovaPrenotazione(Prenotazione p){
-        ThreadAggiunta tr = new ThreadAggiunta(coda, p);
-        tr.start();
+
+    public void setListaPrenotazione(List<Prenotazione> listaPrenotazione) {
+        this.listaPrenotazione = listaPrenotazione;
     }
-    
-    
+
+    public List<Sportello> getListaSportelli() {
+        return listaSportelli;
+    }
+
+    public void setListaSportelli(List<Sportello> listaSportelli) {
+        this.listaSportelli = listaSportelli;
+    }
+
+    public void next() {
+
+        //prossima prenotazione, la tipologia la invia il totem
+    }
+
+    //in ingresso riceverà dal totem la tipologia tramite websocket
+    public void addPrenotazione(Tipo tipologia) {
+        Prenotazione ticket = new Prenotazione(tipologia, 0);
+        listaPrenotazione.add(ticket);
+    }
+
+    //riceve lo stato e il numero dello sportello è lo aggiunge alla lista degli sportelli tramite websochet
+    public void addSportello(Sportello s) {
+
+        s = new Sportello(0);
+        listaSportelli.add(s);
+
+    }
+
+    public static boolean checkLogin(String username, String password) {
+
+        if (username.equals("admin") && password.equals("admin")) {
+
+            return true;
+
+        }
+        return false;
+
+    }
 }

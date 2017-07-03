@@ -27,7 +27,7 @@ public class ProgettoD {
         
         Coda coda = new Coda();
         ControlPannello cp = new ControlPannello();
-        Gestore g = new Gestore(coda);
+       // Gestore g = new Gestore(coda);
         ControlTotem ct = new ControlTotem(g);
         ControlSportello cs = new ControlSportello(g);
 //        ThreadSportello ts = new ThreadSportello(g, 1);

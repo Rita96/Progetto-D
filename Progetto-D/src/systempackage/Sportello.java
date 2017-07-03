@@ -5,17 +5,19 @@
  */
 package systempackage;
 
+import guipackage.FrameLogin;
+
 /**
  *
  * @author riccardo
  */
-public class Sportello{
-    
-    int ID;
-    Tipo tipologia;
-    boolean attivo;
-    boolean libero;
-    Prenotazione prenotazione;
+public class Sportello {
+
+    private int ID;
+    private Tipo tipologia;
+    private boolean attivo;
+    private boolean libero;
+    private Prenotazione prenotazione;
 
     //costruttore di Sportello: viene passato come parametro solo il numero identificativo dello sportello
     public Sportello(int ID) {
@@ -23,20 +25,43 @@ public class Sportello{
         this.tipologia = Tipo.NULL;
         this.attivo = true;
         this.libero = true;
+
     }
-    
-    //metodo che fa passare lo stato dello sportello da libero a occupato
-    public synchronized void sonoOccupato(){
-        this.libero = false;
+
+    public int getID() {
+        return ID;
     }
-    
-    //metodo che fa passare lo stato dello sportello da occupato a libero
-    public synchronized void sonoDisponibile(){
-        this.libero = true;
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
-    
+
+    public boolean isAttivo() {
+        return attivo;
+    }
+
+    public void setAttivo(boolean attivo) {
+        this.attivo = attivo;
+    }
+
+    public boolean isLibero() {
+        return libero;
+    }
+
+    public void setLibero(boolean libero) {
+        this.libero = libero;
+    }
+
+    public Tipo getTipologia() {
+        return tipologia;
+    }
+
+    public Prenotazione getPrenotazione() {
+        return prenotazione;
+    }
+
     //metodo che assegna una prenotazione a uno Sportello
-    public synchronized void setPrenotazione(Prenotazione pren){
+    public synchronized void setPrenotazione(Prenotazione pren) {
         this.prenotazione = pren;
     }
 
@@ -49,6 +74,5 @@ public class Sportello{
     void setTipologia(Tipo tipo) {
         this.tipologia = tipo;
     }
-   
-    
+
 }

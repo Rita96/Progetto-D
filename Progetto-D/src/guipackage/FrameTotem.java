@@ -19,7 +19,7 @@ import systempackage.Tipo;
  */
 public class FrameTotem extends JFrame{
     
-    ControlTotem ct;
+    private ControlTotem ct;
     
     public FrameTotem(ControlTotem ct){
         this.ct = ct;
@@ -29,7 +29,7 @@ public class FrameTotem extends JFrame{
         ActionListener la = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ct.creaPrenotazione(Tipo.A);
+                ct.inviaTipologia(Tipo.A);
             }
         };
         tipoA.addActionListener(la);
@@ -39,7 +39,7 @@ public class FrameTotem extends JFrame{
         ActionListener lb = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ct.creaPrenotazione(Tipo.B);
+                ct.inviaTipologia(Tipo.B);
             }
         };
         tipoB.addActionListener(lb);

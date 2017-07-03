@@ -1,92 +1,170 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
  */
 package guipackage;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import static java.lang.Integer.parseInt;
-import java.net.Socket;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import systempackage.ControlSportello;
-import systempackage.Tipo;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 /**
  *
- * @author Utente
+ * @author Tonio_UniPv
  */
-public class FrameSportello extends JFrame{
-    
-    int numerosportello;
-    ControlSportello controlS;
-    
-    //frame con due bottoni: uno per connettersi e l'altro per dichiarare la disponibilità
-    //si ha bisogno del numero dello sportello associato per comunicare con il resto del sistema
-    //controlS è il controllore degli sportelli necessario anch'esso per far funzionare il programma
-    public FrameSportello(ControlSportello cs){
-        this.controlS = cs;
-        
-        JPanel pan = new JPanel();
-        JButton creasock = new JButton("connetti");
-        ActionListener l = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try{
-                    Socket socket = new Socket("localhost", 9090);
-                    BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    numerosportello = parseInt(input.readLine());
-                }catch (IOException ex){
-                }
-            }
-        };
-        creasock.addActionListener(l);
-        pan.add(creasock);
-        
-        
-        JButton libera = new JButton("finito");
-        ActionListener l2 = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controlS.liberaSportello(numerosportello);
-            }
-        };
-        libera.addActionListener(l2);
-        pan.add(libera);
-        
-        
-        JButton tipoA = new JButton("Tipo A");
-        ActionListener listenerTipoA = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controlS.setTipo(numerosportello, Tipo.A);
-            }
-        };
-        tipoA.addActionListener(listenerTipoA);
-        pan.add(tipoA);
-        
-        JButton tipoB = new JButton("Tipo B");
-        ActionListener listenerTipoB = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controlS.setTipo(numerosportello, Tipo.B);
-            }
-        };
-        tipoB.addActionListener(listenerTipoB);
-        pan.add(tipoB);
-        
-        
-        add(pan);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        setSize (500, 500);
+public class FrameSportello extends JFrame implements ActionListener {
+
+    Font font = new Font("Verdana", Font.BOLD, 12);
+    Border bordoStd = BorderFactory.createLineBorder(Color.blue, 2);
+    Border bordoBlack = BorderFactory.createLineBorder(Color.black, 2);
+    String[] tipo = {"A (Singola Operazione)", "B (Pagamenti e Prelievi", "C (Spedizioni)", "Tutte le tipologie"};
+    JFrame prenotazioneFrame;
+    JLabel prenotazioneLabel;
+    JPanel sportelloPanel;
+    JPanel loginPanel;
+    JPanel cardPanel;
+
+    public FrameSportello() {
+        initComponents();
+
     }
-    
+
+    private void initComponents() {
+        
+
+        cardPanel = new JPanel(new CardLayout());
+        sportelloPanel = new JPanel();
+        loginPanel = new JPanel();
+        sportelloPanel.setLayout(new BorderLayout());
+
+        setTitle("Sportello ");    //provvisorio
+        setSize(300, 200);
+        setResizable(false);
+
+//        JPanel panel = new JPanel();
+//        JPanel buttonPanel = new JPanel();
+//        buttonPanel.setBorder(bordoBlack);
+//        buttonPanel.setBackground(Color.blue);
+        sportelloPanel.setBackground(Color.yellow);
+        sportelloPanel.setLayout(new GridLayout(4, 1));
+
+        JComboBox tipologia = new JComboBox(tipo);
+
+        prenotazioneLabel = new JLabel("Etichetta Prenotazione");
+        prenotazioneLabel.setFont(font);
+        prenotazioneLabel.setHorizontalAlignment(JLabel.CENTER);
+
+
+
+        JButton logoutButton = new JButton("Logout");
+        logoutButton.addActionListener(this);
+        logoutButton.setFont(font);
+
+        JButton nextButton = new JButton("Prossimo Cliente");
+        nextButton.setFont(font);
+        nextButton.setBounds(70, 40, 160, 70);
+        nextButton.addActionListener(this);
+
+        sportelloPanel.add(nextButton);
+        sportelloPanel.add(prenotazioneLabel);
+        sportelloPanel.add(tipologia);
+
+        sportelloPanel.add(logoutButton);
+        cardPanel.add(sportelloPanel, "sportello");
+
+        loginPanel.setLayout(null);
+
+        JLabel usLabel = new JLabel("Username");
+        usLabel.setBounds(30, 20, 80, 25);
+        usLabel.setFont(font);
+        usLabel.setForeground(Color.blue);
+        loginPanel.add(usLabel);
+
+        JLabel pasLabel = new JLabel("Password");
+        pasLabel.setBounds(30, 80, 80, 25);
+        pasLabel.setFont(font);
+        pasLabel.setForeground(Color.blue);
+        loginPanel.add(pasLabel);
+
+        JTextField usernameTextField = new JTextField(20);
+        usernameTextField.setBounds(120, 20, 150, 20);
+        usernameTextField.setFont(font);
+        usernameTextField.setBorder(bordoStd);
+        loginPanel.add(usernameTextField);
+
+        JPasswordField passwordTextArea = new JPasswordField(20);
+        passwordTextArea.setBounds(120, 80, 150, 20);
+        passwordTextArea.setFont(font);
+        passwordTextArea.setBorder(bordoStd);
+        loginPanel.add(passwordTextArea);
+
+        JButton loginButton = new JButton("Login");
+        loginButton.setBounds(100, 120, 100, 40);
+        loginButton.setFont(font);
+        loginButton.addActionListener(this);
+
+        loginPanel.add(loginButton);
+        cardPanel.add(loginPanel, "login");
+
+        add(cardPanel);
+        
+        CardLayout cl = (CardLayout) cardPanel.getLayout();
+        cl.show(cardPanel, "login");
+        
+        setVisible(true);
+
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    private void creaFramePrenotazione(JLabel prenotazione) {
+
+        prenotazioneFrame = new JFrame("Prenotazione");
+        JPanel panel = new JPanel();
+        JLabel label = new JLabel(prenotazione.getText());
+        label.setFont(new Font("Verdana", Font.BOLD, 20));
+        panel.setBackground(Color.yellow);
+        panel.setLayout(new GridLayout(1, 1));
+        panel.add(label);
+        prenotazioneFrame.add(panel);
+        prenotazioneFrame.setLocation(1000, 300);
+
+        prenotazioneFrame.setVisible(true);
+        prenotazioneFrame.pack();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String comando = e.getActionCommand();
+
+        if (comando.equals("Prossimo cliente")) {
+            
+        } else if (comando.equals("Login")) {
+            
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            creaFramePrenotazione(prenotazioneLabel);
+            cardLayout.show(cardPanel, "sportello");
+            
+        } else if(comando.equals("Logout")){
+            CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
+            prenotazioneFrame.dispose();
+            cardLayout.show(cardPanel, "login");
+        }
+    }
+
 }

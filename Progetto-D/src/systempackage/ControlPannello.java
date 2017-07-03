@@ -30,7 +30,7 @@ public class ControlPannello {
         String s = "";
         
         p = prenotazione.toString();
-        s = Integer.toString(sportello.ID);
+        s = Integer.toString(sportello.getID());
         
         righePannello.put(p, s);
         

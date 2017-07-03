@@ -37,7 +37,7 @@ public class Coda {
             ThreadRicerca t = (ThreadRicerca) Thread.currentThread();
             t.interrupt();
         }
-        if(sp.libero && sp.tipologia.equals(Tipo.NULL)){
+        if(sp.isLibero() && sp.getTipologia().equals(Tipo.NULL)){
             try{
                 Prenotazione ticket = listaprenotazioni.get(0);
                 listaprenotazioni.remove(0);
@@ -49,14 +49,14 @@ public class Coda {
                 
             }
         }
-        else if(sp.libero){
+        else if(sp.isLibero()){
             Iterator itr = listaprenotazioni.iterator();
             Prenotazione ticket;
             
             try{
                 while(itr.hasNext()) {
                     ticket = (Prenotazione) itr.next();
-                    if(sp.tipologia.equals(ticket.tipologia)){
+                    if(sp.getTipologia().equals(ticket.tipologia)){
                         int ind = listaprenotazioni.indexOf(ticket);
                         listaprenotazioni.remove(ind);
                         numeroprenotazioni--;
