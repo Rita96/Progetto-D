@@ -23,7 +23,7 @@ public class FramePannello extends JFrame {
     ArrayList<JLabel> label;
     JLabel l;
 
-    public FramePannello() {
+    public FramePannello(ControlPannello cp) {
 
       
         this.cp = cp;

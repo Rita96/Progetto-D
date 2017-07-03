@@ -18,7 +18,7 @@ public class ControlPannello {
 
     public ControlPannello() {
         
-        fp = new FramePannello();
+        fp = new FramePannello(this);
 
     }
 
