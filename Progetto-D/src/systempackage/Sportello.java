@@ -5,8 +5,6 @@
  */
 package systempackage;
 
-import guipackage.FrameLogin;
-
 /**
  *
  * @author riccardo

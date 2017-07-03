@@ -5,7 +5,6 @@
  */
 package systempackage;
 
-import guipackage.FrameLogin;
 import guipackage.FrameSportello;
 
 /**
