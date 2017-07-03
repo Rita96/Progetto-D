@@ -29,7 +29,7 @@ public class ThreadRicerca extends Thread{
     public void run(){
         
         coda.next(sp);
-        cs.inviaPrenotazione(sp);
+        cs.inviaStato();
         
     }
     

@@ -5,7 +5,7 @@
  */
 package mainpackage;
 
-import sportellopackage.FrameSportello;
+
 import sportellopackage.ControlSportello;
 import systempackage.Sportello;
 

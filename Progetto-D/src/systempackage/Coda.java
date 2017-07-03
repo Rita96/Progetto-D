@@ -42,7 +42,7 @@ public class Coda {
                 Prenotazione ticket = listaprenotazioni.get(0);
                 listaprenotazioni.remove(0);
                 numeroprenotazioni--;
-                sp.sonoOccupato();
+                sp.setLibero(false);
                 sp.setPrenotazione(ticket);
                 System.out.println(ticket);
             }catch(IndexOutOfBoundsException e){
@@ -60,7 +60,7 @@ public class Coda {
                         int ind = listaprenotazioni.indexOf(ticket);
                         listaprenotazioni.remove(ind);
                         numeroprenotazioni--;
-                        sp.sonoOccupato();
+                        sp.setLibero(false);
                         sp.setPrenotazione(ticket);
                         System.out.println(ticket);
                     }

@@ -71,6 +71,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         CardLayout cl = (CardLayout) cardPanel.getLayout();
         cl.show(cardPanel, "login");
 
+        
         setVisible(true);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -120,7 +121,8 @@ public class FrameSportello extends JFrame implements ActionListener {
                 }
                 break;
             case ("Logout"):
-                cSportello.setAttivo(false);;
+                cSportello.setAttivo(false);
+                ;
                 passwordTextArea.setText("");
                 usernameTextField.setText("");
 
@@ -131,7 +133,7 @@ public class FrameSportello extends JFrame implements ActionListener {
             default:
                 break;
         }
-        
+
     }
 
     private void initLoginPanel() {
