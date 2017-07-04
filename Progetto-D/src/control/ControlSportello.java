@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sportellopackage;
+package control;
 
-import sportellopackage.FrameSportello;
-import systempackage.Gestore;
-import systempackage.Sportello;
+import gui.FrameSportello;
+import model.Gestore;
+import model.Sportello;
 
 /**
  *

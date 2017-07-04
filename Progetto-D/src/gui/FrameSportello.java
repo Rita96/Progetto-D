@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
  */
-package sportellopackage;
+package gui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -21,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
+import control.ControlSportello;
 
 /**
  *

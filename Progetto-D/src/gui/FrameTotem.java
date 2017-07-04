@@ -3,7 +3,7 @@
 * To change this template file, choose Tools | Templates
 * and open the template in the editor.
  */
-package totempackage;
+package gui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -13,7 +13,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import systempackage.Tipo;
+import model.Tipo;
+import control.ControlTotem;
 
 /**
  *

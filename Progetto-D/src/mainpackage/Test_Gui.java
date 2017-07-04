@@ -7,10 +7,10 @@ package mainpackage;
 
 
 
-import pannellopackage.ControlPannello;
-import sportellopackage.ControlSportello;
-import systempackage.Sportello;
-import totempackage.ControlTotem;
+import control.ControlPannello;
+import control.ControlSportello;
+import model.Sportello;
+import control.ControlTotem;
 
 /**
  *
