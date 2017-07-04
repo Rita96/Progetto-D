@@ -23,7 +23,7 @@ public class Test_Gui {
 //        Sportello s = new Sportello(1);
 //        ControlSportello controlSportello = new ControlSportello(s);
 //        
-//        ControlTotem cT = new ControlTotem();
+        ControlTotem cT = new ControlTotem();
 //        
         
           ControlPannello cp = new ControlPannello();
