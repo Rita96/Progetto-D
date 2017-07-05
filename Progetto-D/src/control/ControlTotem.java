@@ -14,11 +14,7 @@ import model.Tipo;
  */
 public class ControlTotem {
 
-    private FrameTotem fTotem;
-
     public ControlTotem() {
-
-        fTotem = new FrameTotem(this);
 
     }
 

@@ -5,8 +5,6 @@
  */
 package control;
 
-import gui.FramePannello;
-
 /**
  *
  * @author riccardo
@@ -14,11 +12,8 @@ import gui.FramePannello;
 public class ControlPannello {
 
     private String turno;
-    private FramePannello fp;
 
     public ControlPannello() {
-        
-        fp = new FramePannello(this);
 
     }
 

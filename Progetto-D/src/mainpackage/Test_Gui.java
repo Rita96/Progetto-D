@@ -5,12 +5,13 @@
  */
 package mainpackage;
 
-
-
 import control.ControlPannello;
 import control.ControlSportello;
 import model.Sportello;
 import control.ControlTotem;
+import gui.FramePannello;
+import gui.FrameSportello;
+import gui.FrameTotem;
 
 /**
  *
@@ -22,14 +23,12 @@ public class Test_Gui {
 
 //        Sportello s = new Sportello(1);
 //        ControlSportello controlSportello = new ControlSportello(s);
-//        
-        ControlTotem cT = new ControlTotem();
-//        
-        
-          ControlPannello cp = new ControlPannello();
+//        FrameSportello frameSportello = new FrameSportello(controlSportello);
+//
+          FrameTotem frameTotem = new FrameTotem(new ControlTotem());
 
-        
-        
+       
+//        FramePannello fp = new FramePannello(new ControlPannello());
 
     }
 

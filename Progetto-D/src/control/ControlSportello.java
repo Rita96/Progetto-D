@@ -17,11 +17,10 @@ import model.Sportello;
 public class ControlSportello {
 
     private Sportello sportello;
-    private FrameSportello fSportello;
 
     public ControlSportello(Sportello sportello) {
         this.sportello = sportello;
-        this.fSportello = new FrameSportello(this);
+
     }
 
     public Sportello getSportello() {
@@ -43,15 +42,15 @@ public class ControlSportello {
         //client.send gestito da websocket
         sportello.setLibero(true);
     }
-    
-    public void setAttivo(boolean bool){
+
+    public void setAttivo(boolean bool) {
         sportello.setAttivo(bool);
     }
-    
-    public boolean inviaCredenziali(String user, String password){
-    
+
+    public boolean inviaCredenziali(String user, String password) {
+
         return Gestore.checkLogin(user, password);
-    
+
     }
 
 }

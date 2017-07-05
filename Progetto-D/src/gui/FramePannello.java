@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import control.ControlPannello;
+import java.awt.Font;
+import javax.swing.border.Border;
 
 /**
  *
@@ -18,49 +20,47 @@ import control.ControlPannello;
  */
 public class FramePannello extends JFrame {
 
-    ControlPannello cp;
-    ArrayList<String> turni;
-    JPanel panel;
-    ArrayList<JLabel> label;
-    JLabel l;
+    private ControlPannello cp;
+    private ArrayList<String> turni;
+    private JPanel panel;
+    private ArrayList<JLabel> label;
+    private JLabel l;
 
     public FramePannello(ControlPannello cp) {
 
-      
-        this.cp = cp;
+        this.cp = new ControlPannello();
         
         this.turni = new ArrayList<>();
-       
+
         this.label = new ArrayList<>(5);
-      
+
         initComponents();
 
     }
 
     private void initComponents() {
 
-        
         panel = new JPanel();
         panel.setLayout(new GridLayout(5, 1));
-       
 
-        l = new JLabel("Ciao");
-      
+        
+
         for (int i = 0; i < 5; i++) {
+
             
-            String str = "Label" + i;
-            l = new JLabel(str);
+            l = new JLabel("LABEL " +(i+1));
+            l.setFont(new Font("Verdana", Font.BOLD, 12));
             label.add(l);
             panel.add(label.get(i));
-            
+
         }
-      
+
         panel.add(l);
         add(panel);
-    
+
         pack();
         setVisible(true);
-       
+        setLocation(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
