@@ -5,14 +5,14 @@
  */
 package gui;
 
-import java.awt.GridLayout;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import control.ControlPannello;
 import java.awt.Font;
-import javax.swing.border.Border;
+import javax.swing.BoxLayout;
+import javax.swing.JSeparator;
 
 /**
  *
@@ -25,11 +25,12 @@ public class FramePannello extends JFrame {
     private JPanel panel;
     private ArrayList<JLabel> label;
     private JLabel l;
+    private Font font = new Font("Verdana", Font.BOLD, 30);
 
     public FramePannello(ControlPannello cp) {
 
         this.cp = new ControlPannello();
-        
+
         this.turni = new ArrayList<>();
 
         this.label = new ArrayList<>(5);
@@ -41,15 +42,14 @@ public class FramePannello extends JFrame {
     private void initComponents() {
 
         panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 1));
-
-        
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         for (int i = 0; i < 5; i++) {
 
-            
-            l = new JLabel("LABEL " +(i+1));
-            l.setFont(new Font("Verdana", Font.BOLD, 12));
+            panel.add(new JSeparator());
+            l = new JLabel("LABEL " + (i + 1));
+            l.setFont(font);
+            l.setHorizontalAlignment(JLabel.CENTER);
             label.add(l);
             panel.add(label.get(i));
 
@@ -58,10 +58,19 @@ public class FramePannello extends JFrame {
         panel.add(l);
         add(panel);
 
+        setLocation(600, 300);
         pack();
         setVisible(true);
-        setLocation(600, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public void aggiornaPannello(String nextPrenotazione) {
+
+        label.get(4).setText(label.get(3).getText());
+        label.get(3).setText(label.get(2).getText());
+        label.get(2).setText(label.get(1).getText());
+        label.get(1).setText(label.get(0).getText());
+        label.get(0).setText(nextPrenotazione);
     }
 
 }
