@@ -16,10 +16,13 @@ public class Gestore {
 
     private List<Prenotazione> listaPrenotazione;
     private List<Sportello> listaSportelli;
+    
+    private static List<Utente> utenti;
 
     public Gestore() {
         this.listaPrenotazione = new ArrayList<>();
         this.listaSportelli = new ArrayList<>();
+        this.utenti = LetturaCredenziali.letturaFileCredenziali("credenziali.txt");
 
     }
 
@@ -63,14 +66,41 @@ public class Gestore {
 
     }
 
-    public static boolean checkLogin(String username, String password) {
-
-        if (username.equals("admin") && password.equals("admin")) {
-
-            return true;
-
+//    public static boolean checkLogin(String username, String password) {
+//
+//        if (username.equals("admin") && password.equals("admin")) {
+//
+//            return true;
+//
+//        }
+//        return false;
+//
+//    }
+    
+    public static boolean checkLogin(String username, String password){
+        
+        boolean check = false;
+        
+        for (int i = 0; i < utenti.size(); i++) {
+            
+            if(username.equalsIgnoreCase((utenti.get(i).getId())) && password.equalsIgnoreCase(utenti.get(i).getPassword())){
+                
+                check = true;
+                
+            }
+        
         }
-        return false;
+        
+        return check;
+    }
 
+    
+    public String stringUtenti(){
+        String stringa = "";
+        for (int i = 0; i<utenti.size(); i++){
+            stringa += utenti.get(i).toString() + "\n";
+        }
+        return stringa;
+        
     }
 }

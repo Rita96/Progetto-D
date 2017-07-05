@@ -14,6 +14,7 @@ import control.ControlTotem;
 import gui.FramePannello;
 import gui.FrameSportello;
 import gui.FrameTotem;
+import model.Gestore;
 
 /**
  *
@@ -27,10 +28,13 @@ public class Test_Gui {
 //        ControlSportello controlSportello = new ControlSportello(s);
 //        FrameSportello frameSportello = new FrameSportello(controlSportello);
 //
-          FrameTotem frameTotem = new FrameTotem(new ControlTotem());
+//          FrameTotem frameTotem = new FrameTotem(new ControlTotem());
 
        
 //        FramePannello fp = new FramePannello(new ControlPannello());
+        
+        Gestore g = new Gestore();       
+        System.out.println(g.stringUtenti());
 
     }
 
