@@ -200,7 +200,7 @@ public class FrameSportello extends JFrame implements ActionListener {
     }
 
     private void showInvalidUsernameMessage() {
-        JFrame errorMessage = new JFrame("Invalid uername or password");
+        JFrame errorMessage = new JFrame("Invalid username or password");
         errorMessage.setLayout(new GridLayout(2, 1));
         JLabel errorLabel = new JLabel("Username o password errate");
         JButton okButton = new JButton("OK");

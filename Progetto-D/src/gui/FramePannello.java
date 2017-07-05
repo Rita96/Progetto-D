@@ -10,9 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import control.ControlPannello;
+import java.awt.Color;
 import java.awt.Font;
-import javax.swing.BoxLayout;
-import javax.swing.JSeparator;
+import javax.swing.BorderFactory;
+import javax.swing.SwingConstants;
+import javax.swing.border.Border;
 
 /**
  *
@@ -25,6 +27,8 @@ public class FramePannello extends JFrame {
     private JPanel panel;
     private ArrayList<JLabel> label;
     private JLabel l;
+    private JLabel etichetta;
+    Border bordoStd = BorderFactory.createLineBorder(Color.blue, 2);
     private Font font = new Font("Verdana", Font.BOLD, 30);
 
     public FramePannello(ControlPannello cp) {
@@ -40,26 +44,41 @@ public class FramePannello extends JFrame {
     }
 
     private void initComponents() {
-
+        
+        etichetta = new JLabel("Prenotazione-->Sportello", SwingConstants.CENTER);
+        etichetta.setBounds(50, 10, 500, 60);
+        etichetta.setFont(font);
+        etichetta.setForeground(Color.blue);
+        
         panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-
+        panel.setLayout(null);
+        panel.setBackground(Color.yellow);
+        
+        panel.add(etichetta);
+        
+        
+        int y = 70;
         for (int i = 0; i < 5; i++) {
 
-            panel.add(new JSeparator());
-            l = new JLabel("LABEL " + (i + 1));
+//            panel.add(new JSeparator());
+            l = new JLabel("LABEL " + (i + 1), SwingConstants.CENTER);
             l.setFont(font);
-            l.setHorizontalAlignment(JLabel.CENTER);
+            l.setForeground(Color.blue);
+//            l.setHorizontalAlignment(JLabel.CENTER);
+            l.setBounds(160, y, 260, 60);
+            l.setBorder(bordoStd);
             label.add(l);
             panel.add(label.get(i));
+            y+=80;
 
         }
 
         panel.add(l);
         add(panel);
 
+        setSize(600, 500);
         setLocation(600, 300);
-        pack();
+//        pack();
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

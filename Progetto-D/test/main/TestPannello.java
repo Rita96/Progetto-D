@@ -18,10 +18,10 @@ public class TestPannello {
         ControlPannello cp = new ControlPannello();
         FramePannello fp = new FramePannello(cp);
         
-        fp.aggiornaPannello("A1-->1");
-        fp.aggiornaPannello("A3-->3");
-        fp.aggiornaPannello("B2-->7");
-        fp.aggiornaPannello("C1-->2");
+        fp.aggiornaPannello("A001\t-->\tSP01");
+        fp.aggiornaPannello("A003\t-->\tSP03");
+        fp.aggiornaPannello("B002\t-->\tSP07");
+        fp.aggiornaPannello("C001\t-->\tSP02");
         
         
     }
