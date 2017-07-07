@@ -67,18 +67,4 @@ public class ControlSportello {
         this.manager = manager;
     }
 
-    public int convertiTipo(Tipo tipo) {
-        switch (tipo) {
-            case A:
-                return 0;
-            case B:
-                return 1;
-            case C:
-                return 2;
-
-            default:
-                return -1;
-        }
-    }
-
 }
