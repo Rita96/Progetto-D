@@ -20,9 +20,10 @@ public class TestSportello1 {
     public static void main(String[] args) {
         
         Gestore g = new Gestore(1);
-        Sportello sp1 = new Sportello(1,Tipo.A);
+        Sportello sp1 = new Sportello(1,Tipo.C);
         FrameSportello frameSportello1 = new FrameSportello(new ControlSportello(sp1));
         
+     
     }
     
 }

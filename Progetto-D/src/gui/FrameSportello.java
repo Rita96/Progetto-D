@@ -124,7 +124,6 @@ public class FrameSportello extends JFrame implements ActionListener {
                 break;
             case ("Logout"):
                 cSportello.setAttivo(false);
-                ;
                 passwordTextArea.setText("");
                 usernameTextField.setText("");
 
@@ -179,6 +178,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         sportelloPanel.setLayout(new GridLayout(4, 1));
 
         tipologia = new JComboBox(tipo);
+        tipologia.setSelectedIndex(cSportello.getSportello().getTipologia().ordinal());
 
         prenotazioneLabel = new JLabel("Etichetta Prenotazione");
         prenotazioneLabel.setFont(font);

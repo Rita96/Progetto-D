@@ -79,7 +79,7 @@ public class Gestore {
     //in ingresso riceverà dal totem la tipologia tramite websocket
     public Prenotazione newPrenotazione(Tipo tipologia) {
 
-        Prenotazione ticket = new Prenotazione(tipologia, ++this.contaTipo[convertiTipo(tipologia)]);
+        Prenotazione ticket = new Prenotazione(tipologia, ++this.contaTipo[tipologia.ordinal()]);
         return ticket;
     }
 
@@ -117,19 +117,6 @@ public class Gestore {
 
     }
 
-    public int convertiTipo(Tipo tipo) {
-        switch (tipo) {
-            case A:
-                return 0;
-            case B:
-                return 1;
-            case C:
-                return 2;
-            case D:
-                return 3;
-            default:
-                return -1;
-        }
-    }
+
 
 }
