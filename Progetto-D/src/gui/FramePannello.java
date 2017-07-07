@@ -44,19 +44,18 @@ public class FramePannello extends JFrame {
     }
 
     private void initComponents() {
-        
+
         etichetta = new JLabel("Prenotazione-->Sportello", SwingConstants.CENTER);
         etichetta.setBounds(50, 10, 500, 60);
         etichetta.setFont(font);
         etichetta.setForeground(Color.blue);
-        
+
         panel = new JPanel();
         panel.setLayout(null);
         panel.setBackground(Color.yellow);
-        
+
         panel.add(etichetta);
-        
-        
+
         int y = 70;
         for (int i = 0; i < 5; i++) {
 
@@ -69,7 +68,7 @@ public class FramePannello extends JFrame {
             l.setBorder(bordoStd);
             label.add(l);
             panel.add(label.get(i));
-            y+=80;
+            y += 80;
 
         }
 
@@ -78,17 +77,20 @@ public class FramePannello extends JFrame {
 
         setSize(600, 500);
         setLocation(600, 300);
-//        pack();
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    
+    
     public void aggiornaPannello(String nextPrenotazione) {
 
-        label.get(4).setText(label.get(3).getText());
-        label.get(3).setText(label.get(2).getText());
-        label.get(2).setText(label.get(1).getText());
-        label.get(1).setText(label.get(0).getText());
+        for (int i = 4; i >= 0; i--) {
+
+            label.get(i).setText(label.get(i - 1).getText());
+
+        }
+
         label.get(0).setText(nextPrenotazione);
     }
 

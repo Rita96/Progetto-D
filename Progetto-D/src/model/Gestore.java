@@ -14,26 +14,42 @@ import java.util.List;
  */
 public class Gestore {
 
-    private List<Prenotazione> listaPrenotazione;
+    private Coda coda;
     private List<Sportello> listaSportelli;
     private static List<Utente> utenti;
     private int[] contaTipo;
 
     public Gestore(int numeroSportelli) {
-        this.listaPrenotazione = new ArrayList<>();
+        this.coda = new Coda();
         this.listaSportelli = new ArrayList<>();
         Gestore.utenti = LetturaCredenziali.letturaFileCredenziali("credenziali.txt");
-//        for (int i = 0; i < contaTipo.length; i++) {
-//            contaTipo[i] = 0;
-//        }
+        for (int i = 0; i < contaTipo.length; i++) {
+            contaTipo[i] = 0;
+        }
     }
 
-    public List<Prenotazione> getListaPrenotazione() {
-        return listaPrenotazione;
+    public Coda getCoda() {
+        return coda;
     }
 
-    public void setListaPrenotazione(List<Prenotazione> listaPrenotazione) {
-        this.listaPrenotazione = listaPrenotazione;
+    public void setCoda(Coda coda) {
+        this.coda = coda;
+    }
+
+    public static List<Utente> getUtenti() {
+        return utenti;
+    }
+
+    public static void setUtenti(List<Utente> utenti) {
+        Gestore.utenti = utenti;
+    }
+
+    public int[] getContaTipo() {
+        return contaTipo;
+    }
+
+    public void setContaTipo(int[] contaTipo) {
+        this.contaTipo = contaTipo;
     }
 
     public List<Sportello> getListaSportelli() {
@@ -44,25 +60,9 @@ public class Gestore {
         this.listaSportelli = listaSportelli;
     }
 
-    public void next() {
+    public void inviaTurno(Sportello sp) {
 
-        for (Prenotazione prenotazione : listaPrenotazione) {
-
-            for (Sportello sportello : listaSportelli) {
-
-                if (prenotazione.getTipologia() == sportello.getTipologia()) {
-
-                    String turno = new String();
-
-                }
-
-            }
-
-        }
-
-    }
-
-    public void inviaTurno() {
+        coda.next(sp);
 
     }
 
@@ -76,17 +76,11 @@ public class Gestore {
 
     }
 
-    //in ingresso riceverà dal totem la tipologia tramite websocket
-    public Prenotazione newPrenotazione(Tipo tipologia) {
+    public void addInCoda(Tipo tipologia) {
 
         Prenotazione ticket = new Prenotazione(tipologia, ++this.contaTipo[tipologia.ordinal()]);
-        return ticket;
-    }
-
-    //riceve lo stato e il numero dello sportello è lo aggiunge alla lista degli sportelli tramite websochet
-    public void newSportello(Sportello s) {
-
-        listaSportelli.add(s);
+        coda.aggiungiPrenotazione(ticket);
+        System.out.println(ticket);
 
     }
 
@@ -98,7 +92,6 @@ public class Gestore {
 
             if (username.equalsIgnoreCase((utenti.get(i).getId())) && password.equalsIgnoreCase(utenti.get(i).getPassword())) {
 
-                utenti.remove(utenti.get(i));
                 check = true;
 
             }
