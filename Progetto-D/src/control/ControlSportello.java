@@ -60,7 +60,7 @@ public class ControlSportello {
     }
 
     public ISportelloManager getManager() {
-        return manager;
+        return manager;         
     }
 
     public void setManager(ISportelloManager manager) {

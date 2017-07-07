@@ -15,7 +15,7 @@ import java.util.Iterator;
  */
 public class Coda {
 
-    ArrayList<Prenotazione> listaprenotazioni;
+    private ArrayList<Prenotazione> listaprenotazioni;
 
     //costruttore di coda, inizializza un ArrayList vuoto e il numero di prenotazioni pari a zero
     public Coda() {
@@ -84,4 +84,13 @@ public class Coda {
 
         return sb.toString();
     }
+
+    public ArrayList<Prenotazione> getListaprenotazioni() {
+        return listaprenotazioni;
+    }
+
+    public void setListaprenotazioni(ArrayList<Prenotazione> listaprenotazioni) {
+        this.listaprenotazioni = listaprenotazioni;
+    }
+
 }
