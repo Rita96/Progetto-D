@@ -56,7 +56,7 @@ public class Coda {
             try{
                 while(itr.hasNext()) {
                     ticket = (Prenotazione) itr.next();
-                    if(sp.getTipologia().equals(ticket.tipologia)){
+                    if(sp.getTipologia().equals(ticket.getTipologia())){
                         int ind = listaprenotazioni.indexOf(ticket);
                         listaprenotazioni.remove(ind);
                         numeroprenotazioni--;

@@ -11,8 +11,8 @@ package model;
  */
 public class Prenotazione {
 
-    Tipo tipologia;
-    int numero;
+    private Tipo tipologia;
+    private int numero;
 
     //costruttore di Prenotazione: ha come parametri il tipo e il numero della prenotazione
     public Prenotazione(Tipo tipologia, int numero) {
@@ -20,10 +20,22 @@ public class Prenotazione {
         this.numero = numero;
     }
 
-//    //restituisce il codice della prenotazione
-//    public String getCodice(){
-//        return tipologia.toString() + numero;
-//    }
+    public Tipo getTipologia() {
+        return tipologia;
+    }
+
+    public void setTipologia(Tipo tipologia) {
+        this.tipologia = tipologia;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
     //restituisce il codice della prenotazione
     @Override
     public String toString() {

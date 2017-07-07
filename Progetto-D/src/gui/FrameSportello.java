@@ -56,7 +56,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         loginPanel = new JPanel();
         sportelloPanel.setLayout(new BorderLayout());
 
-        setTitle("Sportello ");    //provvisorio
+        setTitle("Login Sportello " +cSportello.getSportello().getID());    //provvisorio
         setSize(300, 200);
         setResizable(false);
 
@@ -113,6 +113,7 @@ public class FrameSportello extends JFrame implements ActionListener {
                     CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
                     creaFramePrenotazione(prenotazioneLabel);
                     cardLayout.show(cardPanel, "sportello");
+                    setTitle("Sportello " +cSportello.getSportello().getID());
                 } else {
 
                     passwordTextArea.setText("");
@@ -130,6 +131,7 @@ public class FrameSportello extends JFrame implements ActionListener {
                 CardLayout cardLayout = (CardLayout) cardPanel.getLayout();
                 prenotazioneFrame.dispose();
                 cardLayout.show(cardPanel, "login");
+                setTitle("Login Sportello " +cSportello.getSportello().getID());
                 break;
             default:
                 break;
@@ -139,7 +141,7 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     private void initLoginPanel() {
         loginPanel.setLayout(null);
-
+        
         usLabel = new JLabel("Username");
         usLabel.setBounds(30, 20, 80, 25);
         usLabel.setFont(font);

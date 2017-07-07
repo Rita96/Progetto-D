@@ -18,9 +18,9 @@ public class Sportello {
     private Prenotazione prenotazione;
 
     //costruttore di Sportello: viene passato come parametro solo il numero identificativo dello sportello
-    public Sportello(int ID) {
+    public Sportello(int ID, Tipo t) {
         this.ID = ID;
-        this.tipologia = Tipo.NULL;
+        this.tipologia = t;
         this.attivo = true;
         this.libero = true;
 

@@ -5,6 +5,7 @@
  */
 package control;
 
+import callbacks.ITotemManager;
 import gui.FrameTotem;
 import model.Tipo;
 
@@ -14,13 +15,34 @@ import model.Tipo;
  */
 public class ControlTotem {
 
+    private ITotemManager manager;
+
     public ControlTotem() {
 
     }
 
     public void inviaTipologia(Tipo t) {
+           
+
+
+
+
+
+
 
         System.out.println("Invio tipo " + t.toString());//client.send gestido da websocket
+    }
+
+    public void onMessage() {
+        manager.onNewReservation(null);
+    }
+
+    public ITotemManager getManager() {
+        return manager;
+    }
+
+    public void setManager(ITotemManager manager) {
+        this.manager = manager;
     }
 
 }

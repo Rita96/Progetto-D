@@ -16,14 +16,16 @@ public class Gestore {
 
     private List<Prenotazione> listaPrenotazione;
     private List<Sportello> listaSportelli;
-    
     private static List<Utente> utenti;
+    private int[] contaTipo;
 
-    public Gestore() {
+    public Gestore(int numeroSportelli) {
         this.listaPrenotazione = new ArrayList<>();
         this.listaSportelli = new ArrayList<>();
-        this.utenti = LetturaCredenziali.letturaFileCredenziali("credenziali.txt");
-
+        Gestore.utenti = LetturaCredenziali.letturaFileCredenziali("credenziali.txt");
+//        for (int i = 0; i < contaTipo.length; i++) {
+//            contaTipo[i] = 0;
+//        }
     }
 
     public List<Prenotazione> getListaPrenotazione() {
@@ -44,63 +46,90 @@ public class Gestore {
 
     public void next() {
 
-        //prossima prenotazione, la tipologia la invia il totem
+        for (Prenotazione prenotazione : listaPrenotazione) {
+
+            for (Sportello sportello : listaSportelli) {
+
+                if (prenotazione.getTipologia() == sportello.getTipologia()) {
+
+                    String turno = new String();
+
+                }
+
+            }
+
+        }
+
     }
 
     public void inviaTurno() {
 
-        //sever.sent invia al pannelo e sportello
+    }
+
+    public Tipo riceviTipo() {
+
+        return Tipo.NULL;
+
+    }
+
+    public void riceviStato() {
+
     }
 
     //in ingresso riceverà dal totem la tipologia tramite websocket
-    public void addPrenotazione(Tipo tipologia) {
-        Prenotazione ticket = new Prenotazione(tipologia, 0);
-        listaPrenotazione.add(ticket);
+    public Prenotazione newPrenotazione(Tipo tipologia) {
+
+        Prenotazione ticket = new Prenotazione(tipologia, ++this.contaTipo[convertiTipo(tipologia)]);
+        return ticket;
     }
 
     //riceve lo stato e il numero dello sportello è lo aggiunge alla lista degli sportelli tramite websochet
-    public void addSportello(Sportello s) {
+    public void newSportello(Sportello s) {
 
-        s = new Sportello(0);
         listaSportelli.add(s);
 
     }
 
-//    public static boolean checkLogin(String username, String password) {
-//
-//        if (username.equals("admin") && password.equals("admin")) {
-//
-//            return true;
-//
-//        }
-//        return false;
-//
-//    }
-    
-    public static boolean checkLogin(String username, String password){
-        
+    public static boolean checkLogin(String username, String password) {
+
         boolean check = false;
-        
+
         for (int i = 0; i < utenti.size(); i++) {
-            
-            if(username.equalsIgnoreCase((utenti.get(i).getId())) && password.equalsIgnoreCase(utenti.get(i).getPassword())){
-                
+
+            if (username.equalsIgnoreCase((utenti.get(i).getId())) && password.equalsIgnoreCase(utenti.get(i).getPassword())) {
+
+                utenti.remove(utenti.get(i));
                 check = true;
-                
+
             }
-        
+
         }
-        
+
         return check;
     }
 
-    
-    public String stringUtenti(){
+    public String stringUtenti() {
         String stringa = "";
-        for (int i = 0; i<utenti.size(); i++){
+        for (int i = 0; i < utenti.size(); i++) {
             stringa += utenti.get(i).toString() + "\n";
         }
         return stringa;
-        
+
     }
+
+    public int convertiTipo(Tipo tipo) {
+        switch (tipo) {
+            case A:
+                return 0;
+            case B:
+                return 1;
+            case C:
+                return 2;
+            case D:
+                return 3;
+            default:
+                return -1;
+        }
+    }
+
 }

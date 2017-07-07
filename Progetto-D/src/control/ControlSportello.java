@@ -5,9 +5,12 @@
  */
 package control;
 
+import callbacks.ISportelloManager;
 import gui.FrameSportello;
 import model.Gestore;
+import model.Prenotazione;
 import model.Sportello;
+import model.Tipo;
 
 /**
  *
@@ -17,6 +20,7 @@ import model.Sportello;
 public class ControlSportello {
 
     private Sportello sportello;
+    private ISportelloManager manager;
 
     public ControlSportello(Sportello sportello) {
         this.sportello = sportello;
@@ -34,6 +38,8 @@ public class ControlSportello {
     public void ricevePrenotazione() {
 
         //server.receive gestito da websocket
+        Prenotazione prenotazione = new Prenotazione(Tipo.A, 0);
+        manager.onNextReservation(prenotazione);
         sportello.setLibero(false);
     }
 
@@ -52,5 +58,15 @@ public class ControlSportello {
         return Gestore.checkLogin(user, password);
 
     }
+
+    public ISportelloManager getManager() {
+        return manager;
+    }
+
+    public void setManager(ISportelloManager manager) {
+        this.manager = manager;
+    }
+    
+    
 
 }

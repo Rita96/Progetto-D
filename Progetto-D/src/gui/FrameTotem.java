@@ -5,6 +5,7 @@
  */
 package gui;
 
+import callbacks.ITotemManager;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -15,12 +16,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import model.Tipo;
 import control.ControlTotem;
+import model.Prenotazione;
 
 /**
  *
  * @author Tonio_UniPv
  */
-public class FrameTotem extends JFrame implements ActionListener {
+public class FrameTotem extends JFrame implements ActionListener, ITotemManager {
 
     ControlTotem ct;
     Font font = new Font("Verdana", Font.BOLD, 12);
@@ -30,6 +32,7 @@ public class FrameTotem extends JFrame implements ActionListener {
     public FrameTotem(ControlTotem ct) {
 
         this.ct = ct;
+        this.ct.setManager(this);
         initComponents();
 
     }
@@ -95,6 +98,12 @@ public class FrameTotem extends JFrame implements ActionListener {
 
         }
 
+    }
+
+    @Override
+    public void onNewReservation(Prenotazione prenotazione) {
+        System.out.println(prenotazione);
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
