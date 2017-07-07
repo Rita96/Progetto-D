@@ -23,6 +23,7 @@ public class Gestore {
         this.coda = new Coda();
         this.listaSportelli = new ArrayList<>();
         Gestore.utenti = LetturaCredenziali.letturaFileCredenziali("credenziali.txt");
+        this.contaTipo = new int[3];
         for (int i = 0; i < contaTipo.length; i++) {
             contaTipo[i] = 0;
         }
