@@ -5,6 +5,7 @@
  */
 package model;
 
+import control.ControlSportello;
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
@@ -25,11 +26,11 @@ public class Coda {
     //metodo che aggiunge una preotazione passata come paramtro e la aggiunge alla coda (ArrayList)
     public synchronized void aggiungiPrenotazione(Prenotazione ticket) {
         listaprenotazioni.add(ticket);
-        System.out.println(ticket);
+        System.out.println("aggiunta " + ticket + " in coda");
     }
 
     //fornisce la prossima prenotazione nella lista
-    public synchronized String next(Sportello sp) {
+    public synchronized String next(ControlSportello cs) {
 
         if (listaprenotazioni.isEmpty()) {
             ThreadRicerca t = (ThreadRicerca) Thread.currentThread();
@@ -37,36 +38,36 @@ public class Coda {
 
         }
 
-        while (listaprenotazioni.iterator().hasNext()) {
+        Iterator itr = listaprenotazioni.iterator();
+        Prenotazione tmp;
 
-            for (int i = 0; i < listaprenotazioni.size(); i++) {
+        while (itr.hasNext()) {
 
-                if (listaprenotazioni.get(i).getTipologia() == sp.getTipologia()) {
+            tmp = (Prenotazione) itr.next();
 
-                    try {
+            if (tmp.getTipologia() == cs.getSportello().getTipologia()) {
 
-                        String ticket = listaprenotazioni.get(i).toString() + "\t-->\t" + "SP" + sp.getID();
-                        sp.setLibero(false);
-                        sp.setPrenotazione(listaprenotazioni.get(i));
-                        listaprenotazioni.remove(listaprenotazioni.get(i));
-                        System.out.println(ticket);
-                        return ticket;
+                try {
 
-                    } catch (IndexOutOfBoundsException e) {
-
-                    }
-
-                    break;
-                } else if (!listaprenotazioni.iterator().hasNext()) {
-
-                    String ticket = listaprenotazioni.get(0).toString() + "\t-->\t" + "SP" + sp.getID();
-                    sp.setLibero(false);
-                    sp.setPrenotazione(listaprenotazioni.get(0));
-                    listaprenotazioni.remove(listaprenotazioni.get(0));
-                    System.out.println(ticket);
+                    String ticket = tmp.toString() + "\t-->\t" + "SP" + cs.getSportello().getID();
+                    cs.getSportello().setLibero(false);
+//                        cs.getSportello().setPrenotazione(listaprenotazioni.get(i));
+                    listaprenotazioni.remove(tmp);
+                    System.out.println("prenotazione individuata " + ticket);
                     return ticket;
 
+                } catch (IndexOutOfBoundsException e) {
+
                 }
+            } else if (!itr.hasNext()) {
+
+                String ticket = listaprenotazioni.get(0).toString() + "\t-->\t" + "SP" + cs.getSportello().getID();
+                cs.getSportello().setLibero(false);
+//                    sp.setPrenotazione(listaprenotazioni.get(0));
+                listaprenotazioni.remove(listaprenotazioni.get(0));
+                System.out.println("prenotazione individuata " + ticket);
+                return ticket;
+
             }
         }
 
