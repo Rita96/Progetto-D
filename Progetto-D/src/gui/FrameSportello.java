@@ -103,8 +103,8 @@ public class FrameSportello extends JFrame implements ActionListener {
         String password = new String(passwordTextArea.getPassword());
 
         switch (comando) {
-            case ("Prossimo cliente"):
-                cSportello.inviaStato();
+            case ("Prossimo Cliente"):
+                cSportello.richiediPrenotazione();
                 break;
             case ("Login"):
                 if (cSportello.inviaCredenziali(username, password)) {
