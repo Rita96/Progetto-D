@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>PANNELLO PRENOTAZIONI</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script type="text/javascript">
+            
+            var serverUrl = "ws://localhost:8080/WebsocketServer/totem";
+            var output;
+            
+            function initialize(){
+                webSocket = new WebSocket(serverUrl);
+                
+                webSocket.onopen = function(event){
+                    onOpen(event);
+                };
+                
+                webSocket.onclose = function(event){
+                    onClose(event);
+                };
+                
+                webSocket.onmessage = function(event){
+                    onMessage(event);
+                };
+                
+                webSocket.onerror = function(event){
+                    onError(event);
+                };
+            
+            }
+            
+            function onOpen(){
+                
+            }
+            
+            function onClose(){
+                
+            }
+            
+            function onMessage(){
+                
+            }
+            
+            function onError(){
+                
+            }
+            
+
+            
+        </script>
+        <div>TODO write content</div>
+    </body>
+</html>
