@@ -6,18 +6,42 @@ and open the template in the editor.
 -->
 <html>
     <head>
+        
+            
         <title>PANNELLO PRENOTAZIONI</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body onload="initialize">  <!--in dovrebbe chiamare la funzione initialize() -->
         
+        <style>
+            body {
+                background-color: yellow; 
+                
+            }
+            h1 {
+                color: blue;
+                text-align: center;
+                font-size: 40px;
+            }
+            div {
+                color: blue;
+                text-align: center;
+                font-size: 30px;
+            }
+
+        </style>
+    </head>
+    <body onload="initialize()">
+        
+        <h1>Prenotazione--->Sportello</h1>
+        <div onload="aggiornaPannello()"></div>
        
         <script type="text/javascript">
             
             var serverUrl = "ws://localhost:8080/WebsocketServer/totem";
             var output;
             var array = new Array(4);
+            
+            
             
             function initialize(){
                 webSocket = new WebSocket(serverUrl);
@@ -59,7 +83,7 @@ and open the template in the editor.
             function aggiornaPannello(nextPren){
                 
                 array.pop(array[3]);        //dovrebbe eliminare l'ultimo elemento dell'array
-                array.unshift(nextPren);    //dovrebbe aggiungere nextPren al primo elemento dell'array
+                array.unshift(nextPren\n);    //dovrebbe aggiungere nextPren al primo elemento dell'array
                 
                 for(i=0; i<array.length; i++){
                     document.write(array[i]);
@@ -68,6 +92,6 @@ and open the template in the editor.
             }
             
         </script>
-        <div>TODO write content</div>
+        
     </body>
 </html>
