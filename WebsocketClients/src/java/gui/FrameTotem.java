@@ -21,9 +21,10 @@ import java.util.logging.Logger;
  *
  * @author Tonio_UniPv
  */
-
-//aggiunta di commento
-
+/**
+ * rappresenta l'interfaccia grafica attraverso il quale si può richiedere la
+ * prenotazione del proprio turno
+ */
 public class FrameTotem extends JFrame implements ActionListener {
 
     ControlTotem ct;
@@ -46,6 +47,9 @@ public class FrameTotem extends JFrame implements ActionListener {
         this.ct = ct;
     }
 
+    /**
+     * inizializza i componenti del Frame
+     */
     private void initComponents() {
 
         setTitle("Totem");
@@ -78,33 +82,37 @@ public class FrameTotem extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    /**
+     * definisce le azioni compiute dai pulsanti
+     */
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
 
         switch (comando) {
             case ("A (Singola Operazione)"): {
-            try {
-                ct.inviaTipologia(0);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FrameTotem.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                try {
+                    ct.inviaTipologia(0);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FrameTotem.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             }
             case ("B (Pagamenti e Prelievi)"): {
-            try {
-                ct.inviaTipologia(1);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FrameTotem.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                try {
+                    ct.inviaTipologia(1);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FrameTotem.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             }
             case ("C (Spedizioni)"): {
-            try {
-                ct.inviaTipologia(2);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FrameTotem.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                try {
+                    ct.inviaTipologia(2);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FrameTotem.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             }
             default:
