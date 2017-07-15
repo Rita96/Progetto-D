@@ -21,6 +21,9 @@ import java.util.logging.Logger;
  *
  * @author Tonio_UniPv
  */
+
+//aggiunta di commento
+
 public class FrameTotem extends JFrame implements ActionListener {
 
     ControlTotem ct;
