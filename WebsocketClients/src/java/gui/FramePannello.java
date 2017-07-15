@@ -19,8 +19,14 @@ import src.WebsocketPannello;
 
 /**
  *
- * @author riccardo
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * 
+ * rappresenta il dispositivo che si occupa di tenere traccia delle prenotazioni
+ * attuali, per aiutare il cliente ad identificare lo sportello dove potrà
+ * richiedere i servizi
  */
+
 public class FramePannello extends JFrame {
 
     private ControlPannello cp;
@@ -42,9 +48,13 @@ public class FramePannello extends JFrame {
 
         initComponents();
 
-        riceviTurno();
+        prossimoTurno();
 
     }
+    
+    /**
+     * metodo che inizializza i componenti grafici
+     */
 
     private void initComponents() {
 
@@ -62,11 +72,9 @@ public class FramePannello extends JFrame {
         int y = 70;
         for (int i = 0; i < 5; i++) {
 
-//            panel.add(new JSeparator());
             l = new JLabel("LABEL " + (i + 1), SwingConstants.CENTER);
             l.setFont(font);
             l.setForeground(Color.blue);
-//            l.setHorizontalAlignment(JLabel.CENTER);
             l.setBounds(160, y, 260, 60);
             l.setBorder(bordoStd);
             label.add(l);
@@ -83,7 +91,14 @@ public class FramePannello extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public void riceviTurno() {
+    /**
+     * metodo che cambia l'elenco delle stringhe visualizzate
+     * l'ultima stringa ricevuta diventa la prima e le altre scalano verso il
+     * basso
+     * @param nextPrenotazione la nuova stringa da aggiungere 
+     */
+    
+    public void prossimoTurno() {
 
         cp.riceviTurno(new WebsocketPannello.MessageHandler() {
             @Override
