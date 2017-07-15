@@ -1,15 +1,13 @@
 package src;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import model.Gestore;
-import model.Tipo;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -59,7 +57,7 @@ public class WebsocketServerLoginEndpoint {
     public void onClose(Session session) {
 
         System.out.println("Chiusa");
-        
+
     }
 
 }

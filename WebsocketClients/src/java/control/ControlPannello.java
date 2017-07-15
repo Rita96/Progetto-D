@@ -5,26 +5,37 @@
  */
 package control;
 
+import java.io.IOException;
+import java.net.URI;
+import javax.websocket.DeploymentException;
+import src.WebsocketPannello;
+
 /**
  *
  * @author riccardo
  */
 public class ControlPannello {
 
-    private String turno;
+    Boolean check = false;
 
-    public ControlPannello() {
+    private WebsocketPannello websocketPannello;
+
+    public ControlPannello(URI uriEndpoint) throws DeploymentException, IOException {
+
+        this.websocketPannello = new WebsocketPannello(uriEndpoint);
+        this.check = true;
 
     }
 
-    public void mostraTurno(String turno) {
+    public void riceviTurno(WebsocketPannello.MessageHandler messageHandler) {
 
-    }
+        if (check) {
 
-    public String riceviTurno() {
+            websocketPannello.sendMessage("OK");
+            check = false;
+        }
+        websocketPannello.addMessageHandler(messageHandler);
 
-        //client.receive riceve dal gestore la compo sportello turno da mostrare
-        return turno;
     }
 
 }

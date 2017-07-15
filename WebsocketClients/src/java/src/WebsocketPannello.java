@@ -21,15 +21,15 @@ import javax.websocket.WebSocketContainer;
  * @author pierg
  */
 @ClientEndpoint
-public class WebsocketSportello {
+public class WebsocketPannello {
 
     private MessageHandler messageHandler;
     private Session userSession;
 
-    public WebsocketSportello(URI endpointURI) throws DeploymentException, IOException {
+    public WebsocketPannello(URI endpointURI) throws DeploymentException, IOException {
 
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-        container.connectToServer(this,  endpointURI);
+        container.connectToServer(this, endpointURI);
 
     }
 
@@ -44,6 +44,7 @@ public class WebsocketSportello {
     public void onMessage(String s, Session session) {
 
         messageHandler.handleMessage(s);
+        
     }
 
     @OnClose
@@ -79,5 +80,4 @@ public class WebsocketSportello {
         this.userSession = userSession;
     }
 
-    
 }

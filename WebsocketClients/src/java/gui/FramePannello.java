@@ -15,6 +15,7 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+import src.WebsocketPannello;
 
 /**
  *
@@ -33,13 +34,15 @@ public class FramePannello extends JFrame {
 
     public FramePannello(ControlPannello cp) {
 
-        this.cp = new ControlPannello();
+        this.cp = cp;
 
         this.turni = new ArrayList<>();
 
         this.label = new ArrayList<>(5);
 
         initComponents();
+
+        riceviTurno();
 
     }
 
@@ -74,24 +77,33 @@ public class FramePannello extends JFrame {
 
         panel.add(l);
         add(panel);
-
         setSize(600, 500);
         setLocation(600, 300);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    
-    
-    public void aggiornaPannello(String nextPrenotazione) {
+    public void riceviTurno() {
 
-        for (int i = 4; i >= 0; i--) {
+        cp.riceviTurno(new WebsocketPannello.MessageHandler() {
+            @Override
+            public void handleMessage(String message) {
 
-            label.get(i).setText(label.get(i - 1).getText());
+                aggiornaPannello(message);
 
-        }
+            }
+        });
 
-        label.get(0).setText(nextPrenotazione);
+    }
+
+    public void aggiornaPannello(String s) {
+
+        label.get(4).setText(label.get(3).getText());
+        label.get(3).setText(label.get(2).getText());
+        label.get(2).setText(label.get(1).getText());
+        label.get(1).setText(label.get(0).getText());
+        label.get(0).setText(s);
+
     }
 
 }

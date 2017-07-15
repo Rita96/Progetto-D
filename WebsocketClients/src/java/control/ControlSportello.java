@@ -18,10 +18,10 @@ public class ControlSportello {
 
     private int idSportello;
     private int tipologia;
-    private WebsocketSportello websocketSportello;
+    private WebsocketSportello websocketTicket;
 
     public ControlSportello(int idSportello, int tipologia, URI endpointURI) throws DeploymentException, IOException {
-        this.websocketSportello = new WebsocketSportello(endpointURI);
+        this.websocketTicket = new WebsocketSportello(endpointURI);
         this.idSportello = idSportello;
         this.tipologia = tipologia;
 
@@ -35,13 +35,10 @@ public class ControlSportello {
         return tipologia;
     }
 
-
-
     public void dammiPrenotazione(int idSportello, int tipo, WebsocketSportello.MessageHandler messageHandler) {
 
-        
-        websocketSportello.sendMessage(idSportello + "-"+tipo);
-        websocketSportello.addMessageHandler(messageHandler);
+        websocketTicket.sendMessage(idSportello + "-" + tipo);
+        websocketTicket.addMessageHandler(messageHandler);
 
     }
 

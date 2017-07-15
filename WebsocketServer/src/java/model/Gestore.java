@@ -19,6 +19,7 @@ public class Gestore {
     private List<Sportello> listaSportelli;
     private static List<Utente> utenti;
     private int[] contaTipo;
+    private String messaggioPannello;
 
     private Gestore() {
         this.coda = new Coda();
@@ -137,4 +138,14 @@ public class Gestore {
         }
 
     }
+
+    public String getMessaggioPannello() {
+        return messaggioPannello;
+    }
+
+    public void setMessaggioPannello(String messaggioPannello) {
+        this.messaggioPannello = messaggioPannello;
+    }
+    
+    
 }

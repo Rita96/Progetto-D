@@ -59,7 +59,8 @@ public class Coda {
             } else if (!itr.hasNext()) {
 
                 String ticket = listaprenotazioni.get(0).toString() + "\t-->\t" + "SP" + id;
-
+                Gestore.getIstance().setMessaggioPannello(ticket);
+                System.out.println(Gestore.getIstance().getMessaggioPannello());
                 listaprenotazioni.remove(listaprenotazioni.get(0));
                 System.out.println("prenotazione individuata " + ticket);
                 return ticket;
@@ -90,4 +91,5 @@ public class Coda {
         this.listaprenotazioni = listaprenotazioni;
     }
 
+    
 }
