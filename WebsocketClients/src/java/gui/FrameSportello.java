@@ -28,7 +28,13 @@ import src.WebsocketSportello;
 
 /**
  *
- * @author Tonio_UniPv
+ * @author Antonio Minolfi
+ */
+/**
+ * rappresenta l'interfaccia attraverso il quale l'operatore dello sportello
+ * accede tramite finestra di login, chiama le successive prenotazioni e
+ * seleziona la preferenza di tipo di operazioni di sportello da completare
+ *
  */
 public class FrameSportello extends JFrame implements ActionListener {
 
@@ -45,7 +51,6 @@ public class FrameSportello extends JFrame implements ActionListener {
     JButton logoutButton, nextButton, loginButton;
     ControlSportello cSportello;
     ControlLogin cLogin;
-    
 
     public FrameSportello(ControlSportello cSportello, ControlLogin cLogin) {
 
@@ -55,6 +60,13 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * inizializza i componenti grafici
+     *
+     * @see #initLoginPanel();
+     * @see #initSportelloPanel();
+     *
+     */
     private void initComponents() {
 
         cardPanel = new JPanel(new CardLayout());
@@ -62,7 +74,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         loginPanel = new JPanel();
         sportelloPanel.setLayout(new BorderLayout());
 
-        setTitle("Login Sportello " + cSportello.getIdSportello());    //provvisorio
+        setTitle("Login Sportello " + cSportello.getIdSportello());
         setSize(300, 200);
         setResizable(false);
 
@@ -114,7 +126,7 @@ public class FrameSportello extends JFrame implements ActionListener {
                     public void handleMessage(String message) {
                         prenotazioneLabel.setText(message);
                         etichettaLabel.setText(message);
-                        
+
                     }
                 });
                 break;
@@ -221,6 +233,10 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     }
 
+    /**
+     * crea un frame con un messaggio di errore quando username e password per
+     * il login sonoinvalidi
+     */
     private void showInvalidUsernameMessage() {
         JFrame errorMessage = new JFrame("Invalid username or password");
         errorMessage.setLayout(new GridLayout(2, 1));

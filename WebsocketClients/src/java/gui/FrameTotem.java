@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Tonio_UniPv
+ * @author Antonio Minolfi
  */
 /**
  * rappresenta l'interfaccia grafica attraverso il quale si può richiedere la
