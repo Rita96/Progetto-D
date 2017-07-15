@@ -98,7 +98,7 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     private void creaFramePrenotazione() {
 
-        prenotazioneFrame = new JFrame("Prenotazione");
+        prenotazioneFrame = new JFrame("Prenotazione "+cSportello.getIdSportello());
         JPanel panel = new JPanel();
         etichettaLabel = new JLabel("Nessuna Prenotazione");
         etichettaLabel.setFont(new Font("Verdana", Font.BOLD, 20));

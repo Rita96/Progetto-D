@@ -72,7 +72,7 @@ public class FramePannello extends JFrame {
         int y = 70;
         for (int i = 0; i < 5; i++) {
 
-            l = new JLabel("LABEL " + (i + 1), SwingConstants.CENTER);
+            l = new JLabel("------", SwingConstants.CENTER);
             l.setFont(font);
             l.setForeground(Color.blue);
             l.setBounds(160, y, 260, 60);
