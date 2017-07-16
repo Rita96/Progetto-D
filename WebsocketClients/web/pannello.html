@@ -6,92 +6,92 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        
-            
+
+
         <title>PANNELLO PRENOTAZIONI</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <style>
             body {
                 background-color: yellow; 
-                
+
             }
             h1 {
                 color: blue;
                 text-align: center;
-                font-size: 40px;
-            }
-            div {
-                color: blue;
-                text-align: center;
-                font-size: 30px;
+                font-size: 60px;
             }
 
+            p {
+                background-color: whitesmoke;
+                color: blue;
+                text-align: center;
+                font-size: 40px;
+                width: 400px;
+                border: 1px solid blue;
+                margin-left: auto;
+                margin-right: auto; 
+                
+            }
+            
+
         </style>
-    </head>
-    <body onload="initialize()">
-        
-        <h1>Prenotazione--->Sportello</h1>
-        <div onload="aggiornaPannello()"></div>
-       
+
         <script type="text/javascript">
-            
-            var serverUrl = "ws://localhost:8080/WebsocketServer/totem";
-            var output;
-            var array = new Array(4);
-            
-            
-            
-            function initialize(){
-                webSocket = new WebSocket(serverUrl);
-                
-                webSocket.onopen = function(event){
-                    onOpen(event);
-                };
-                
-                webSocket.onclose = function(event){
-                    onClose(event);
-                };
-                
-                webSocket.onmessage = function(event){
-                    onMessage(event);
-                };
-                
-                webSocket.onerror = function(event){
-                    onError(event);
-                };
-            
+
+            var array = ["---", "---", "---", "---", "---"];
+            //var nextPren;
+            var ws = new WebSocket("ws://192.168.10.149:8080/WebsocketServer/ticket");
+
+
+            ws.onopen = function () {
+
+                console.log('connection open');
+                window.alert('Conferma per accedere al Server');
+                ws.send('OK');
+
+            };
+
+
+            ws.onclose = function () {
+                console.log('connection close');
+            };
+
+
+            ws.onmessage = function (event) {
+
+                array.unshift(event.data);
+                aggiornaPannello(event.data);
+
+            };
+
+
+            function aggiornaPannello(nextPren) {
+
+                document.getElementById("p5").innerHTML = array[4];
+                document.getElementById("p4").innerHTML = array[3];
+                document.getElementById("p3").innerHTML = array[2];
+                document.getElementById("p2").innerHTML = array[1];
+                document.getElementById("p1").innerHTML = array[0];
+
             }
-            
-            function onOpen(){
-                
-            }
-            
-            function onClose(){
-                
-            }
-            
-            function onMessage(){
-                
-            }
-            
-            function onError(){
-                
-            }
-            
-            function aggiornaPannello(nextPren){
-                
-                array.pop(array[3]);        //dovrebbe eliminare l'ultimo elemento dell'array
-                array.unshift(nextPren + "/n");    //dovrebbe aggiungere nextPren al primo elemento dell'array
-                
-                for(i=0; i<array.length; i++){
-                    document.write(array[i]);
-                }
-                
-            }
-            
+
+
         </script>
-        
+
+    </head>
+
+    <body onload="aggiornaPannello();">
+
+        <h1>Prenotazione--->Sportello</h1>
+
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <p id="p4"></p>
+        <p id="p5"></p>
+
     </body>
+
 </html>
