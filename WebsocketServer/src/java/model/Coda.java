@@ -10,29 +10,50 @@ import java.util.Iterator;
 
 /**
  *
- * @author riccardo
+ * @author RiccardoMerlano
+ */
+/**
+ * la classe contiene un ArrayList con le prenotazioni effettuate tramite totem
  */
 public class Coda {
 
     private ArrayList<Prenotazione> listaprenotazioni;
 
-    //costruttore di coda, inizializza un ArrayList vuoto e il numero di prenotazioni pari a zero
+    /**
+     * costruttore di coda, inizializza un ArrayList vuoto e il numero di
+     * prenotazioni pari a zero
+     */
     public Coda() {
         this.listaprenotazioni = new ArrayList();
     }
 
-    //metodo che aggiunge una preotazione passata come paramtro e la aggiunge alla coda (ArrayList)
+    /**
+     * metodo che aggiunge una prenotazione passata come parametro e la aggiunge
+     * alla coda
+     *
+     *
+     */
     public synchronized void aggiungiPrenotazione(Prenotazione ticket) {
         listaprenotazioni.add(ticket);
         System.out.println("aggiunta " + ticket + " in coda");
     }
 
-    //fornisce la prossima prenotazione nella lista
+    /**
+     * fornisce la prossima prenotazione nella lista
+     *
+     * @param id il codice identificativo dello sportello da assegnare alla alla
+     * prenotazione
+     * @param tipo il tipo della prenotazione (es. tipologia A, B, C, etc.)
+     * @return la string ritornata sarà la prenotazione assegnata ad un certo
+     * sportello A22, SP3 che significa che la 22esima prenotazione per
+     * operazioni di tipo A è stata assegnata allo sportello 3 quando questo ha
+     * richiesto una nuova prenotazione
+     */
     public synchronized String next(int id, int tipo) {
 
         if (listaprenotazioni.isEmpty()) {
-            
-            return  "Nessuna Prenotazione";
+
+            return "Nessuna Prenotazione";
 
         }
 
@@ -91,5 +112,4 @@ public class Coda {
         this.listaprenotazioni = listaprenotazioni;
     }
 
-    
 }

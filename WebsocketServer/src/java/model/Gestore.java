@@ -10,15 +10,52 @@ import java.util.List;
 
 /**
  *
- * @author riccardo
+ * @author Riccardo Merlano
+ * @author Piergiorgio Fedele
+ *
+ *
+ */
+/**
+ * il gestore controlla l'elenco della {@link Coda} e degli sportelli e assegna
+ * una nuova prenotazione allo {@link Sportello} che la richiede in base alla tipologia
+ * dello sportello (nel caso lo sportello abbia una preferenza saranno prelevate
+ * dalla coda prima le prenotazioni appartenenti a quella tipologia)
+ *
+ * 
+ * 
+ * @see Sportello
+ * @see Tipo
+ * @see Prenotazione
+ * 
  */
 public class Gestore {
 
+    
     private static Gestore istance;
+    /**
+     * un array con la coda delle prenotazioni
+     * @see Coda
+     */
     private Coda coda;
+    /**
+     * elenco degli sportelli attivi
+     *
+     */
     private List<Sportello> listaSportelli;
+    /**
+     * lista degli utenti che possono accedere
+     *
+     */
     private static List<Utente> utenti;
+    /**
+     * un array di interi, ogni intero è un contatore per una tipologia diversa
+     * di prenotazione
+     *
+     */
     private int[] contaTipo;
+    /**
+     * contiene il messaggio da mandare al pannello
+     */
     private String messaggioPannello;
 
     private Gestore() {
@@ -31,6 +68,7 @@ public class Gestore {
         }
     }
 
+//metodi get e set
     public static Gestore getIstance() {
         if (istance == null) {
 
@@ -76,6 +114,23 @@ public class Gestore {
         this.listaSportelli = listaSportelli;
     }
 
+    public String getMessaggioPannello() {
+        return messaggioPannello;
+    }
+
+    public void setMessaggioPannello(String messaggioPannello) {
+        this.messaggioPannello = messaggioPannello;
+    }
+
+    /**
+     * data la tipologia di prenotazione aggiorna il contatore relativo
+     *
+     * @param tipo la tipologia di prenotazione che si vuole aggiungere in coda
+     * @see #coda
+     * @see #contaTipo
+     * @return ritorna un intero che rappresenta il numero della prenotazione
+     * effettuata (es. prenotazione A22, return 22)
+     */
     public synchronized int addInCoda(int tipo) {
 
         int x = ++this.contaTipo[cambiaTipo(tipo).ordinal()];
@@ -88,6 +143,18 @@ public class Gestore {
         return x;
     }
 
+    /**
+     *
+     * controlla che username e password siano corretti inseriti siano corretti
+     *
+     * @see LetturaCredenziali
+     *
+     * @param username la stringa dello username
+     * @param password la stringa della password
+     * @return ritorna vero se username e password sono corretti
+     *
+     *
+     */
     public boolean checkLogin(String username, String password) {
 
         boolean check = false;
@@ -105,6 +172,13 @@ public class Gestore {
         return check;
     }
 
+    /**
+     * ritorna una lista di utenti che possono accedere
+     *
+     * @see Utente
+     * @see #utenti
+     * @return ritorna la lista in forma di String
+     */
     public String stringUtenti() {
         String stringa = "";
         for (int i = 0; i < utenti.size(); i++) {
@@ -114,6 +188,15 @@ public class Gestore {
 
     }
 
+    /**
+     * converte un intero in un {@link Tipo}
+     *
+     * @param tipo un intero che verrà convertito in una tipologia
+     * @return ritorna la tipologia convertita
+     *
+     *
+     *
+     */
     public Tipo cambiaTipo(int tipo) {
 
         switch (tipo) {
@@ -139,13 +222,4 @@ public class Gestore {
 
     }
 
-    public String getMessaggioPannello() {
-        return messaggioPannello;
-    }
-
-    public void setMessaggioPannello(String messaggioPannello) {
-        this.messaggioPannello = messaggioPannello;
-    }
-    
-    
 }

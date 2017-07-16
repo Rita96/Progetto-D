@@ -7,19 +7,29 @@ package model;
 
 /**
  *
- * @author riccardo
+ * @author Riccardo Merlano
+ */
+/**
+ * Una prenotazione è rappresentata da un numero e da una tipologia. Ad esempio
+ * il trentesimo cliente che richiederà una prenotazione per servizi di tipo A
+ * riceverà la prenotazione A30
  */
 public class Prenotazione {
 
     private Tipo tipologia;
     private int numero;
 
-    //costruttore di Prenotazione: ha come parametri il tipo e il numero della prenotazione
+    /**
+     *
+     * @param tipologia tipo della prenotazione (A, B, C, etc.)
+     * @param numero numero della prenotazione
+     */
     public Prenotazione(Tipo tipologia, int numero) {
         this.tipologia = tipologia;
         this.numero = numero;
     }
 
+    //metodi get e set
     public Tipo getTipologia() {
         return tipologia;
     }
@@ -36,7 +46,9 @@ public class Prenotazione {
         this.numero = numero;
     }
 
-    //restituisce il codice della prenotazione
+    /**
+     * restituisce il codice della prenotazione
+     */
     @Override
     public String toString() {
         return tipologia + Integer.toString(numero);

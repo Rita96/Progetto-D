@@ -16,32 +16,36 @@ import java.util.List;
  *
  * @author davidedelbuono
  */
+/**
+ * legge l'elenco di credenziali (username, password) da un file e le salva in
+ * un ArrayList
+ */
 public class LetturaCredenziali {
-    
-    public static List<Utente> letturaFileCredenziali(String percorso){
-        List<Utente> credenziali = new  ArrayList<>();
-        
-        try{
-           FileReader file = new FileReader(percorso);
-           BufferedReader in = new BufferedReader(file);
-           
-           String line;
-           while((line=in.readLine()) != null){
-               
-               String[] split = line.split("\t");
-               
-               Utente user = new Utente(split[0], split[1]);
-               credenziali.add(user);
-           }
-            
-           file.close();
-           
-        }catch(FileNotFoundException ex){
+
+    public static List<Utente> letturaFileCredenziali(String percorso) {
+        List<Utente> credenziali = new ArrayList<>();
+
+        try {
+            FileReader file = new FileReader(percorso);
+            BufferedReader in = new BufferedReader(file);
+
+            String line;
+            while ((line = in.readLine()) != null) {
+
+                String[] split = line.split("\t");
+
+                Utente user = new Utente(split[0], split[1]);
+                credenziali.add(user);
+            }
+
+            file.close();
+
+        } catch (FileNotFoundException ex) {
             System.out.println("File non trovato");
-        }catch(IOException ex){
+        } catch (IOException ex) {
             System.out.println("Errore IO");
         }
         return credenziali;
     }
-    
+
 }

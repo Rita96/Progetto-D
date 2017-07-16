@@ -6,11 +6,9 @@
 package model;
 
 /**
- *
- * @author Utente
+ * 
+ * un enumerazione per le tipologie di servizi erogati dagli sportelli
  */
-
-//classe enum che definisce le diverse tipologie di prenotazioni
 public enum Tipo {
     A, B, C, D, NULL;
 }

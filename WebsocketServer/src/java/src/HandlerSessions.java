@@ -11,7 +11,7 @@ import javax.websocket.Session;
 
 /**
  *
- * @author pierg
+ * @author Piergiorgio Fedele
  */
 public class HandlerSessions {
 

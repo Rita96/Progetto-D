@@ -7,17 +7,43 @@ package model;
 
 /**
  *
- * @author riccardo
+ * @author RiccardoMerlano
+ */
+/**
+ *
+ * la classe rappresenta lo sportello attraverso il quale l'operatore potrà
+ * erogare i servizi al cliente
  */
 public class Sportello {
 
+    /**
+     * identificativo dello sportello
+     */
     private int ID;
+    /**
+     * tipologia di servizi erogati <p> {@link Tipo}
+     */
     private Tipo tipologia;
+    /**
+     * indica se lo sportello è attivo
+     */
     private boolean attivo;
+    /**
+     * indica se lo sportello è libero, in grado di ricevere una nuova
+     * {@link Prenotazione}
+     */
     private boolean libero;
+    /**
+     * la {@link Prenotazione} servita attualmente
+     * 
+     */
     private Prenotazione prenotazione;
 
-    //costruttore di Sportello: viene passato come parametro solo il numero identificativo dello sportello
+    /**
+     *
+     * @param ID il numero identificativo dello sportello
+     * @param t la tipologia di operazioni preferenziale dello sportello
+     */
     public Sportello(int ID, Tipo t) {
         this.ID = ID;
         this.tipologia = t;
@@ -26,6 +52,7 @@ public class Sportello {
 
     }
 
+    //metodi get e set
     public int getID() {
         return ID;
     }
@@ -54,11 +81,22 @@ public class Sportello {
         return tipologia;
     }
 
+    void setTipologia(Tipo tipo) {
+        this.tipologia = tipo;
+    }
+
     public Prenotazione getPrenotazione() {
         return prenotazione;
     }
 
-    //metodo che assegna una prenotazione a uno Sportello
+    /**
+     * metodo che assegna una prenotazione a uno Sportello
+     * 
+     *
+     * @see Prenotazione
+     * @param pren la prenotazione che viene assegnata allo sportello
+     *
+     */
     public synchronized void setPrenotazione(Prenotazione pren) {
         this.prenotazione = pren;
     }
@@ -66,11 +104,6 @@ public class Sportello {
     @Override
     public String toString() {
         return "Sportello{" + "ID=" + ID + '}';
-    }
-
-    //setter della tipologia
-    void setTipologia(Tipo tipo) {
-        this.tipologia = tipo;
     }
 
 }

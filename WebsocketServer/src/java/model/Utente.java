@@ -9,10 +9,18 @@ package model;
  *
  * @author davidedelbuono
  */
+/**Rappresenta un utente, ovvero un operatore in grado di
+ * accedere con le proprie credenziali allo sportello
+ */
 public class Utente {
-    
+
     private String id;
     private String password;
+    /**
+     * 
+     * @param id identificativo dell'utente
+     * @param password password dell'utente
+     */
 
     public Utente(String id, String password) {
         this.id = id;
@@ -39,7 +47,5 @@ public class Utente {
     public String toString() {
         return "Utente{" + "id=" + id + ", password=" + password + '}';
     }
-    
-    
-    
+
 }
