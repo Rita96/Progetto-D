@@ -28,6 +28,5 @@ public class Test {
         FrameTotem frameTotem = new FrameTotem(new ControlTotem(new URI("ws://localhost:8080/WebsocketServer/totem")));
         URI uriTicket = new URI("ws://localhost:8080/WebsocketServer/ticket");
         FrameSportello frameSportello = new FrameSportello(new ControlSportello(1, 0,uriTicket), new ControlLogin(new URI("ws://localhost:8080/WebsocketServer/login")));
-        FramePannello framePannello = new FramePannello(new ControlPannello(uriTicket));
     }
 }
