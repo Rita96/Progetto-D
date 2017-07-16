@@ -15,8 +15,8 @@ and open the template in the editor.
         <style>
             body {
                 background-color: yellow; 
-
             }
+            
             h1 {
                 color: blue;
                 text-align: center;
@@ -31,55 +31,42 @@ and open the template in the editor.
                 width: 400px;
                 border: 1px solid blue;
                 margin-left: auto;
-                margin-right: auto; 
-                
+                margin-right: auto;     
             }
-            
-
         </style>
 
         <script type="text/javascript">
 
             var array = ["---", "---", "---", "---", "---"];
-            //var nextPren;
+            
             var ws = new WebSocket("ws://192.168.10.149:8080/WebsocketServer/ticket");
 
 
             ws.onopen = function () {
-
                 console.log('connection open');
                 window.alert('Conferma per accedere al Server');
                 ws.send('OK');
-
             };
-
 
             ws.onclose = function () {
                 console.log('connection close');
             };
 
-
             ws.onmessage = function (event) {
-
                 array.unshift(event.data);
-                aggiornaPannello(event.data);
-
+                aggiornaPannello();
             };
 
 
-            function aggiornaPannello(nextPren) {
-
+            function aggiornaPannello() {
                 document.getElementById("p5").innerHTML = array[4];
                 document.getElementById("p4").innerHTML = array[3];
                 document.getElementById("p3").innerHTML = array[2];
                 document.getElementById("p2").innerHTML = array[1];
                 document.getElementById("p1").innerHTML = array[0];
-
             }
-
-
+            
         </script>
-
     </head>
 
     <body onload="aggiornaPannello();">
@@ -93,5 +80,4 @@ and open the template in the editor.
         <p id="p5"></p>
 
     </body>
-
 </html>
