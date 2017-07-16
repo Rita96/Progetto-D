@@ -12,10 +12,11 @@ import src.WebsocketSportello;
 
 /**
  *
- * @author davidedelbuono Fa da tramite tra Gestore (server) e FrameSportello
- * (client) per lo scambio di informazioni
- * {@link Gestore}
- * {@link FramePannello}
+ * @author davidedelbuono
+ */
+/**
+ * Fa da tramite tra Gestore (server) e {@link gui.FrameSportello} (client) per lo scambio
+ * di informazioni
  */
 public class ControlSportello {
 
@@ -38,6 +39,8 @@ public class ControlSportello {
         return tipologia;
     }
 
+    
+    
     public void dammiPrenotazione(int idSportello, int tipo, WebsocketSportello.MessageHandler messageHandler) {
 
         websocketTicket.sendMessage(idSportello + "-" + tipo);

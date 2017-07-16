@@ -30,8 +30,7 @@ import src.WebsocketSportello;
  *
  * @author Antonio Minolfi
  */
-/**
- * rappresenta l'interfaccia attraverso il quale l'operatore dello sportello
+ /** rappresenta l'interfaccia attraverso il quale l'operatore dello sportello
  * accede tramite finestra di login, chiama le successive prenotazioni e
  * seleziona la preferenza di tipo di operazioni di sportello da completare
  *
@@ -62,10 +61,6 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     /**
      * inizializza i componenti grafici
-     *
-     * @see #initLoginPanel();
-     * @see #initSportelloPanel();
-     *
      */
     private void initComponents() {
 
@@ -111,7 +106,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         prenotazioneFrame.setVisible(true);
         prenotazioneFrame.pack();
     }
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();

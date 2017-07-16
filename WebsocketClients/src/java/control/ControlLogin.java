@@ -13,8 +13,15 @@ import src.WebsocketLogin;
 /**
  *
  * @author Piergiorgio Fedele
- *  invia le credenziali al server per verificare la corrispondenza 
- *  username-password
+ */
+
+/**
+ * invia le credenziali al server per verificare la corrispondenza
+ * username-password e accedere alle funzionalità dello sportello
+ * <p>
+ * {@link gui.FrameSportello}
+ * <p>
+ * {@link ControlSportello}
  */
 public class ControlLogin {
 
@@ -31,9 +38,9 @@ public class ControlLogin {
         login.sendMessage(user + "-" + password);
         login.addMessageHandler(callback);
     }
-    
-    public void logout(){
-    
+
+    public void logout() {
+
         login.sendMessage("EXIT");
     }
 

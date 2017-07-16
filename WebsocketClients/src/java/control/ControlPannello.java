@@ -12,9 +12,12 @@ import src.WebsocketPannello;
 
 /**
  *
- * @author RiccardoMerlano Riceve le informazioni da Gestore per rappresentare
- * le prenotazioni (es. A22 --> SP2) su FramePannello  {@link FramePannello}
- * {@link Gestore}
+ * @author RiccardoMerlano
+ */
+/**
+ * Riceve le informazioni da Gestore per rappresentare le prenotazioni su
+ * {@link gui.FramePannello}
+ *
  */
 public class ControlPannello {
 

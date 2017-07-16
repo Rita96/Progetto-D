@@ -21,8 +21,9 @@ import src.WebsocketPannello;
  *
  * @author Riccardo Merlano
  * @author Antonio Minolfi
- * 
- * rappresenta il dispositivo che si occupa di tenere traccia delle prenotazioni
+ */
+
+/** rappresenta il dispositivo che si occupa di tenere traccia delle prenotazioni
  * attuali, per aiutare il cliente ad identificare lo sportello dove potrà
  * richiedere i servizi
  */
@@ -95,8 +96,7 @@ public class FramePannello extends JFrame {
      * metodo che cambia l'elenco delle stringhe visualizzate
      * l'ultima stringa ricevuta diventa la prima e le altre scalano verso il
      * basso
-     * @param nextPrenotazione la nuova stringa da aggiungere
-     * @see #aggiornaPannello
+     * @see #aggiornaPannello(java.lang.String) 
      */
     
     public void prossimoTurno() {
@@ -111,6 +111,11 @@ public class FramePannello extends JFrame {
         });
 
     }
+    
+    /**
+     * 
+     * @param s questa stringa viene messa in cima mentre le altre scalano verso il basso 
+     */
 
     public void aggiornaPannello(String s) {
 

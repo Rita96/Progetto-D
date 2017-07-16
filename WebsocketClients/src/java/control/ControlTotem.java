@@ -13,24 +13,25 @@ import src.WebsocketTotem;
 /**
  *
  * @author davidedelbuono
- * Invia le prenotazioni effettua tramite FrameTotem al Gestore 
- * {@link gui.FrameTotem}
- * {@link }
+ */
+
+/**
+ * Invia le prenotazioni effettua tramite FrameTotem al Gestore
  */
 public class ControlTotem {
-    
+
     final WebsocketTotem totemClient;
-    
+
     public ControlTotem(URI endpoint) throws DeploymentException, IOException {
-        
+
         this.totemClient = new WebsocketTotem(endpoint);
-        
+
     }
-    
+
     public void inviaTipologia(int tipo) throws InterruptedException {
-        
+
         totemClient.sendMessage(Integer.toString(tipo));
-       
+
     }
-    
+
 }

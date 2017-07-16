@@ -12,6 +12,15 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import javax.websocket.DeploymentException;
 
+/**
+ * 
+ * @author Antonio Minolfi
+ */
+
+/**
+ * classe di test
+ *
+ */
 public class Test {
 
     public static void main(String[] args) throws URISyntaxException, DeploymentException, IOException {

@@ -22,8 +22,8 @@ import java.util.logging.Logger;
  * @author Antonio Minolfi
  */
 /**
- * rappresenta l'interfaccia grafica attraverso il quale si può richiedere la
- * prenotazione del proprio turno
+ * rappresenta l'interfaccia grafica attraverso la quale il cliente può
+ * richiedere la prenotazione del proprio turno
  */
 public class FrameTotem extends JFrame implements ActionListener {
 
@@ -48,7 +48,7 @@ public class FrameTotem extends JFrame implements ActionListener {
     }
 
     /**
-     * inizializza i componenti del Frame
+     * inizializza i componenti grafici del Frame
      */
     private void initComponents() {
 
@@ -85,7 +85,6 @@ public class FrameTotem extends JFrame implements ActionListener {
     /**
      * definisce le azioni compiute dai pulsanti
      */
-    
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
