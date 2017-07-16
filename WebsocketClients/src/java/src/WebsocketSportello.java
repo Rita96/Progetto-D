@@ -18,7 +18,7 @@ import javax.websocket.WebSocketContainer;
 
 /**
  *
- * @author pierg
+ * @author Piergiorgio Fedele
  */
 @ClientEndpoint
 public class WebsocketSportello {

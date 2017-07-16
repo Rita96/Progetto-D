@@ -13,6 +13,9 @@ import src.WebsocketTotem;
 /**
  *
  * @author davidedelbuono
+ * Invia le prenotazioni effettua tramite FrameTotem al Gestore 
+ * {@link gui.FrameTotem}
+ * {@link }
  */
 public class ControlTotem {
     

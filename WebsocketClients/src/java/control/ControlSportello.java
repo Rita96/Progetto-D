@@ -12,7 +12,10 @@ import src.WebsocketSportello;
 
 /**
  *
- * @author davidedelbuono
+ * @author davidedelbuono Fa da tramite tra Gestore (server) e FrameSportello
+ * (client) per lo scambio di informazioni
+ * {@link Gestore}
+ * {@link FramePannello}
  */
 public class ControlSportello {
 

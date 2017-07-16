@@ -95,7 +95,8 @@ public class FramePannello extends JFrame {
      * metodo che cambia l'elenco delle stringhe visualizzate
      * l'ultima stringa ricevuta diventa la prima e le altre scalano verso il
      * basso
-     * @param nextPrenotazione la nuova stringa da aggiungere 
+     * @param nextPrenotazione la nuova stringa da aggiungere
+     * @see #aggiornaPannello
      */
     
     public void prossimoTurno() {

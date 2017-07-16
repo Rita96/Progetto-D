@@ -13,9 +13,6 @@ import src.WebsocketLogin;
 /**
  *
  * @author Piergiorgio Fedele
- */
-
-/**
  *  invia le credenziali al server per verificare la corrispondenza 
  *  username-password
  */
