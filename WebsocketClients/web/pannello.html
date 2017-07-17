@@ -38,8 +38,9 @@ and open the template in the editor.
         <script type="text/javascript">
 
             var array = ["---", "---", "---", "---", "---"];
+            var url = "ws://10.87.244.124:8080/WebsocketServer/ticket";
             
-            var ws = new WebSocket("ws://192.168.10.149:8080/WebsocketServer/ticket");
+            var ws = new WebSocket(url);
 
 
             ws.onopen = function () {
@@ -72,7 +73,7 @@ and open the template in the editor.
     <body onload="aggiornaPannello();">
 
         <h1>Prenotazione--->Sportello</h1>
-
+        
         <p id="p1"></p>
         <p id="p2"></p>
         <p id="p3"></p>

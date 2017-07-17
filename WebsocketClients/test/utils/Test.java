@@ -24,8 +24,14 @@ public class Test {
 
     public static void main(String[] args) throws URISyntaxException, DeploymentException, IOException {
 
-        FrameTotem frameTotem = new FrameTotem(new ControlTotem(new URI("ws://10.87.244.124:8080/WebsocketServer/totem")));
+        URI uriTotem = new URI("ws://10.87.244.124:8080/WebsocketServer/totem");
         URI uriTicket = new URI("ws://10.87.244.124:8080/WebsocketServer/ticket");
-        FrameSportello frameSportello = new FrameSportello(new ControlSportello(1, 2, uriTicket), new ControlLogin(new URI("ws://10.87.244.124:8080/WebsocketServer/login")));
+        URI uriLogin = new URI("ws://10.87.244.124:8080/WebsocketServer/login");
+        
+        FrameTotem frameTotem = new FrameTotem(new ControlTotem(uriTotem));
+        FrameSportello Sportello1A = new FrameSportello(new ControlSportello(1, 0, uriTicket), new ControlLogin(uriLogin));
+        FrameSportello Sportello2B = new FrameSportello(new ControlSportello(2, 1, uriTicket), new ControlLogin(uriLogin));
+        FrameSportello Sportello3C = new FrameSportello(new ControlSportello(3, 2, uriTicket), new ControlLogin(uriLogin));
+        
     }
 }
