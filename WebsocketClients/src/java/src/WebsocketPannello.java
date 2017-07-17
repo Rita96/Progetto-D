@@ -18,8 +18,20 @@ import javax.websocket.WebSocketContainer;
 
 /**
  *
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
  * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
+
+/**
+ * 
+ * 
+ * è il client-endpoint che {@link control.ControlPannello} deve istanziare per
+ * poter comunicare al WebsocketServerPannelloEndpoint
+ *
+ */
+ 
 @ClientEndpoint
 public class WebsocketPannello {
 

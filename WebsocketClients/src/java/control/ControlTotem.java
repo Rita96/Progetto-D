@@ -12,7 +12,10 @@ import src.WebsocketTotem;
 
 /**
  *
- * @author davidedelbuono
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 
 /**

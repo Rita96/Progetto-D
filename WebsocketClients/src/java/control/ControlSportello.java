@@ -12,7 +12,10 @@ import src.WebsocketSportello;
 
 /**
  *
- * @author davidedelbuono
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  * Fa da tramite tra Gestore (server) e {@link gui.FrameSportello} (client) per lo scambio

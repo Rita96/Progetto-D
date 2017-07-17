@@ -18,7 +18,16 @@ import javax.websocket.WebSocketContainer;
 
 /**
  *
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
  * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+
+/**
+ * è il client-endpoint che {@link control.ControlTotem} deve istanziare per
+ * poter comunicare il tipo di prenotazione al WebsocketServerTotemEndpoint
+ *
  */
 @ClientEndpoint
 public class WebsocketTotem {

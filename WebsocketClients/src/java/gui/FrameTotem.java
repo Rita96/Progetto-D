@@ -19,7 +19,10 @@ import java.util.logging.Logger;
 
 /**
  *
+ * @author Riccardo Merlano
  * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  * rappresenta l'interfaccia grafica attraverso la quale il cliente può

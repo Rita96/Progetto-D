@@ -18,7 +18,18 @@ import javax.websocket.WebSocketContainer;
 
 /**
  *
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
  * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+/**
+ *
+ * 
+ * è il client-endpoint che {@link control.ControlSportello} deve istanziare per
+ * poter comunicare richieste delle prossime prenotazioni al
+ * WebsocketServerSportelloEndpoint
+ *
  */
 @ClientEndpoint
 public class WebsocketSportello {
@@ -29,7 +40,7 @@ public class WebsocketSportello {
     public WebsocketSportello(URI endpointURI) throws DeploymentException, IOException {
 
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-        container.connectToServer(this,  endpointURI);
+        container.connectToServer(this, endpointURI);
 
     }
 
@@ -79,5 +90,4 @@ public class WebsocketSportello {
         this.userSession = userSession;
     }
 
-    
 }

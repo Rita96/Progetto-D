@@ -12,7 +12,10 @@ import src.WebsocketPannello;
 
 /**
  *
- * @author RiccardoMerlano
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  * Riceve le informazioni da Gestore per rappresentare le prenotazioni su

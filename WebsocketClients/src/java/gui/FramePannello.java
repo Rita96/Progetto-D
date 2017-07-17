@@ -21,6 +21,8 @@ import src.WebsocketPannello;
  *
  * @author Riccardo Merlano
  * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 
 /** rappresenta il dispositivo che si occupa di tenere traccia delle prenotazioni

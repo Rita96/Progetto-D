@@ -28,7 +28,10 @@ import src.WebsocketSportello;
 
 /**
  *
+ * @author Riccardo Merlano
  * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
  /** rappresenta l'interfaccia attraverso il quale l'operatore dello sportello
  * accede tramite finestra di login, chiama le successive prenotazioni e
