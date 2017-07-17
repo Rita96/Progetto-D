@@ -6,6 +6,13 @@
 package model;
 
 /**
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+
+/**
  * 
  * un enumerazione per le tipologie di servizi erogati dagli sportelli
  */

@@ -8,10 +8,16 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import model.Gestore;
 
-
 /**
  *
- * @author pierg
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+/**
+ * gestisce le connessione con i websocket-client di tipo pannello e sportelli,
+ * e invia loro i ticket generati dal {@link Gestore}
  */
 @ServerEndpoint("/ticket")
 public class WebsocketServerTicketEndpoint {

@@ -10,7 +10,10 @@ import java.util.Iterator;
 
 /**
  *
- * @author RiccardoMerlano
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  * la classe contiene un ArrayList con le prenotazioni effettuate tramite totem
@@ -31,6 +34,7 @@ public class Coda {
      * metodo che aggiunge una prenotazione passata come parametro e la aggiunge
      * alla coda
      *
+     * @param ticket il biglietto che viene creato
      *
      */
     public synchronized void aggiungiPrenotazione(Prenotazione ticket) {
@@ -41,7 +45,7 @@ public class Coda {
     /**
      * fornisce la prossima prenotazione nella lista
      *
-     * @param id il codice identificativo dello sportello da assegnare alla alla
+     * @param id il codice identificativo dello sportello che richiede una nuova
      * prenotazione
      * @param tipo il tipo della prenotazione (es. tipologia A, B, C, etc.)
      * @return la string ritornata sarà la prenotazione assegnata ad un certo

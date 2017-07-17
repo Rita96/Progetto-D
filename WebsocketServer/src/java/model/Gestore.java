@@ -11,37 +11,32 @@ import java.util.List;
 /**
  *
  * @author Riccardo Merlano
+ * @author Antonio Minolfi
  * @author Piergiorgio Fedele
- *
+ * @author Davide Del Buono
  *
  */
 /**
- * il gestore controlla l'elenco della {@link Coda} e degli sportelli e assegna
- * una nuova prenotazione allo {@link Sportello} che la richiede in base alla tipologia
- * dello sportello (nel caso lo sportello abbia una preferenza saranno prelevate
- * dalla coda prima le prenotazioni appartenenti a quella tipologia)
+ * Il gestore controlla l'elenco della {@link Coda} e degli sportelli e assegna
+ * una nuova prenotazione allo {@link Sportello} che la richiede in base alla
+ * tipologia dello sportello (nel caso lo sportello abbia una preferenza saranno
+ * prelevate dalla coda prima le prenotazioni appartenenti a quella tipologia)
  *
- * 
- * 
  * @see Sportello
  * @see Tipo
  * @see Prenotazione
- * 
+ *
  */
 public class Gestore {
 
-    
     private static Gestore istance;
     /**
      * un array con la coda delle prenotazioni
+     *
      * @see Coda
      */
     private Coda coda;
-    /**
-     * elenco degli sportelli attivi
-     *
-     */
-    private List<Sportello> listaSportelli;
+
     /**
      * lista degli utenti che possono accedere
      *
@@ -58,9 +53,12 @@ public class Gestore {
      */
     private String messaggioPannello;
 
+    /**
+     * costruttore privato necessario per l'utilizzo del pattern Singleton
+     *
+     */
     private Gestore() {
         this.coda = new Coda();
-        this.listaSportelli = new ArrayList<>();
         Gestore.utenti = LetturaCredenziali.letturaFileCredenziali("C:\\Users\\pierg\\Documents\\NetBeansProjects\\Progetto-D\\WebsocketServer\\credenziali.txt");
         this.contaTipo = new int[3];
         for (int i = 0; i < contaTipo.length; i++) {
@@ -68,7 +66,12 @@ public class Gestore {
         }
     }
 
-//metodi get e set
+    /**
+     * metodo utilizzato per istanziare una sola volta il gestore (pattern
+     * Singleton)
+     *
+     * @return ritorna l'oggetto istanziato
+     */
     public static Gestore getIstance() {
         if (istance == null) {
 
@@ -104,14 +107,6 @@ public class Gestore {
 
     public void setContaTipo(int[] contaTipo) {
         this.contaTipo = contaTipo;
-    }
-
-    public List<Sportello> getListaSportelli() {
-        return listaSportelli;
-    }
-
-    public void setListaSportelli(List<Sportello> listaSportelli) {
-        this.listaSportelli = listaSportelli;
     }
 
     public String getMessaggioPannello() {

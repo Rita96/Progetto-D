@@ -7,7 +7,10 @@ package model;
 
 /**
  *
- * @author davidedelbuono
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**Rappresenta un utente, ovvero un operatore in grado di
  * accedere con le proprie credenziali allo sportello

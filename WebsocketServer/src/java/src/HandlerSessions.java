@@ -11,7 +11,18 @@ import javax.websocket.Session;
 
 /**
  *
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
  * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+/**
+ *
+ * è un Singleton che tiene traccia delle sessioni degli sportelli e del
+ * pannello; memorizza la sessione del pannello, che verrà utilizzata dal
+ * {@link WebsocketServerTicketEndpoint} per inviare le prenotazioni al pannello
+ * senza bisogno di richiederle come nel caso degli sportelli
+ *
  */
 public class HandlerSessions {
 

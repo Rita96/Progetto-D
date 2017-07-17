@@ -9,7 +9,14 @@ import model.Gestore;
 
 /**
  *
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
  * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+/**
+ * gestisce la connessione con websocket-client-totem per ricevere la tipologia
+ * che {@link Gestore} deve elaborare e aggiungere in coda
  */
 @ServerEndpoint("/totem")
 public class WebsocketServerTotemEndpoint {

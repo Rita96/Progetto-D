@@ -8,11 +8,17 @@ import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 import model.Gestore;
 
-
-
 /**
  *
- * @author pierg
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
+ */
+/**
+ * quando viene fatta richiesta di login da un websocket-client questo
+ * websocket-server-endpoint gestisce la richiesta, se le credenziali sono
+ * corrette instaura la connessione client-server
  */
 @ServerEndpoint("/login")
 public class WebsocketServerLoginEndpoint {

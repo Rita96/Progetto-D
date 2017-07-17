@@ -14,7 +14,10 @@ import java.util.List;
 
 /**
  *
- * @author davidedelbuono
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  * legge l'elenco di credenziali (username, password) da un file e le salva in

@@ -7,7 +7,10 @@ package model;
 
 /**
  *
- * @author RiccardoMerlano
+ * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  *
@@ -24,15 +27,7 @@ public class Sportello {
      * tipologia di servizi erogati <p> {@link Tipo}
      */
     private Tipo tipologia;
-    /**
-     * indica se lo sportello è attivo
-     */
-    private boolean attivo;
-    /**
-     * indica se lo sportello è libero, in grado di ricevere una nuova
-     * {@link Prenotazione}
-     */
-    private boolean libero;
+   
     /**
      * la {@link Prenotazione} servita attualmente
      * 
@@ -47,8 +42,7 @@ public class Sportello {
     public Sportello(int ID, Tipo t) {
         this.ID = ID;
         this.tipologia = t;
-        this.attivo = true;
-        this.libero = true;
+        
 
     }
 
@@ -60,23 +54,7 @@ public class Sportello {
     public void setID(int ID) {
         this.ID = ID;
     }
-
-    public boolean isAttivo() {
-        return attivo;
-    }
-
-    public void setAttivo(boolean attivo) {
-        this.attivo = attivo;
-    }
-
-    public boolean isLibero() {
-        return libero;
-    }
-
-    public void setLibero(boolean libero) {
-        this.libero = libero;
-    }
-
+    
     public Tipo getTipologia() {
         return tipologia;
     }

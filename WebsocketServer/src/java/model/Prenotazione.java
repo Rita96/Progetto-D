@@ -8,6 +8,9 @@ package model;
 /**
  *
  * @author Riccardo Merlano
+ * @author Antonio Minolfi
+ * @author Piergiorgio Fedele
+ * @author Davide Del Buono
  */
 /**
  * Una prenotazione è rappresentata da un numero e da una tipologia. Ad esempio
