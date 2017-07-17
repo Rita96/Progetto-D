@@ -41,6 +41,8 @@ public class WebsocketServerTotemEndpoint {
     @OnClose
     public void onClose(Session session) {
 
+        System.out.println("Chiusa");
+
     }
 
 }

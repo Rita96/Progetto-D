@@ -50,14 +50,23 @@ public class WebsocketServerTicketEndpoint {
             System.out.println(id + "---" + tipo);
             String ticket = Gestore.getIstance().getCoda().next(id, tipo);
 
-            session.getAsyncRemote().sendText(ticket);
-            HandlerSessions.handler.getPannelloSession().getAsyncRemote().sendText(ticket);
+            if (ticket.equalsIgnoreCase("Nessuna Prenotazione")) {
+
+                session.getAsyncRemote().sendText(ticket);
+
+            } else {
+                session.getAsyncRemote().sendText(ticket);
+                HandlerSessions.handler.getPannelloSession().getAsyncRemote().sendText(ticket);
+
+            }
 
         }
     }
 
     @OnClose
     public void onClose(Session session) {
+
+        System.out.println("Chiusa");
 
     }
 
