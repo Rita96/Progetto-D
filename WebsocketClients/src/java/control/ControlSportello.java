@@ -42,7 +42,10 @@ public class ControlSportello {
         return tipologia;
     }
 
-    
+    public void setTipologia(int tipologia) {
+        this.tipologia = tipologia;
+    }
+
     
     public void dammiPrenotazione(int idSportello, int tipo, WebsocketSportello.MessageHandler messageHandler) {
 

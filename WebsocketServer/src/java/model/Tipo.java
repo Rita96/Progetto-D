@@ -17,5 +17,5 @@ package model;
  * un enumerazione per le tipologie di servizi erogati dagli sportelli
  */
 public enum Tipo {
-    A, B, C, D, NULL;
+    A, B, C, NULL;
 }

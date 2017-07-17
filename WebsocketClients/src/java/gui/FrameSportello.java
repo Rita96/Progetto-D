@@ -33,7 +33,8 @@ import src.WebsocketSportello;
  * @author Piergiorgio Fedele
  * @author Davide Del Buono
  */
- /** rappresenta l'interfaccia attraverso il quale l'operatore dello sportello
+/**
+ * rappresenta l'interfaccia attraverso il quale l'operatore dello sportello
  * accede tramite finestra di login, chiama le successive prenotazioni e
  * seleziona la preferenza di tipo di operazioni di sportello da completare
  *
@@ -43,7 +44,7 @@ public class FrameSportello extends JFrame implements ActionListener {
     Font font = new Font("Verdana", Font.BOLD, 12);
     Border bordoStd = BorderFactory.createLineBorder(Color.blue, 2);
     Border bordoBlack = BorderFactory.createLineBorder(Color.black, 2);
-    String[] tipo = {"A (Singola Operazione)", "B (Pagamenti e Prelievi", "C (Spedizioni)", "Tutte le tipologie"};
+    String[] tipo = {"A (Singola Operazione)", "B (Pagamenti e Prelievi", "C (Spedizioni)"};
     JFrame prenotazioneFrame;
     JComboBox tipologia;
     JTextField usernameTextField;
@@ -96,7 +97,7 @@ public class FrameSportello extends JFrame implements ActionListener {
 
     private void creaFramePrenotazione() {
 
-        prenotazioneFrame = new JFrame("Prenotazione "+cSportello.getIdSportello());
+        prenotazioneFrame = new JFrame("Prenotazione " + cSportello.getIdSportello());
         JPanel panel = new JPanel();
         etichettaLabel = new JLabel("Nessuna Prenotazione");
         etichettaLabel.setFont(new Font("Verdana", Font.BOLD, 20));
@@ -109,7 +110,7 @@ public class FrameSportello extends JFrame implements ActionListener {
         prenotazioneFrame.setVisible(true);
         prenotazioneFrame.pack();
     }
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String comando = e.getActionCommand();
@@ -162,6 +163,7 @@ public class FrameSportello extends JFrame implements ActionListener {
                 cardLayout.show(cardPanel, "login");
                 setTitle("Login Sportello " + cSportello.getIdSportello());
                 break;
+
             default:
                 break;
         }
@@ -209,6 +211,33 @@ public class FrameSportello extends JFrame implements ActionListener {
 
         tipologia = new JComboBox(tipo);
         tipologia.setSelectedIndex(cSportello.getTipologia());
+        tipologia.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                int comando = tipologia.getSelectedIndex();
+
+                switch (comando) {
+
+                    case 0:
+                        cSportello.setTipologia(0);
+                        break;
+
+                    case 1:
+                        cSportello.setTipologia(1);
+                        break;
+
+                    case 2:
+                        cSportello.setTipologia(2);
+                        break;
+
+                    default:
+                        break;
+
+                }
+
+            }
+        });
 
         prenotazioneLabel = new JLabel("Etichetta Prenotazione");
         prenotazioneLabel.setFont(font);
