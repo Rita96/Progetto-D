@@ -40,7 +40,8 @@ public class WebsocketServerTicketEndpoint {
         if (s.equals("OK")) {
 
             pannelloID = session.getId();
-            HandlerSessions.handler.setPannelloSession(session);
+            //  HandlerSessions.handler.setPannelloSession(session);
+            HandlerSessions.handler.getSessions().add(session);
             System.out.println(s + "dal client");
         } else {
 
@@ -56,7 +57,12 @@ public class WebsocketServerTicketEndpoint {
 
             } else {
                 session.getAsyncRemote().sendText(ticket);
-                HandlerSessions.handler.getPannelloSession().getAsyncRemote().sendText(ticket);
+
+                for (Session sessio : HandlerSessions.handler.getSessions()) {
+
+                    sessio.getAsyncRemote().sendText(ticket);
+
+                }
 
             }
 
