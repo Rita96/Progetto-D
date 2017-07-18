@@ -27,8 +27,8 @@ public class Test_Sportello {
         URI uriLogin = new URI("ws://10.87.244.124:8080/WebsocketServer/login");
 
         ControlSportello cSportello1 = new ControlSportello(1, 0, uriTicket);
-        ControlSportello cSportello2 = new ControlSportello(1, 0, uriTicket);
-        ControlSportello cSportello3 = new ControlSportello(1, 0, uriTicket);
+        ControlSportello cSportello2 = new ControlSportello(2, 1, uriTicket);
+        ControlSportello cSportello3 = new ControlSportello(3, 2, uriTicket);
 
         ControlLogin cLogin1 = new ControlLogin(uriLogin);
         ControlLogin cLogin2 = new ControlLogin(uriLogin);
